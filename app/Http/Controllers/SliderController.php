@@ -1,0 +1,105 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Slider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
+
+class SliderController extends Controller
+{
+    private $slider;
+    public function __construct()
+    {
+        $this->slider = new Slider();
+    }
+
+    public function index(){
+       $sliders= $this->slider::all();
+       return view('slider.all_sliders',['sliders' => $sliders]);
+    }
+    public function addSlider(){
+        return view('slider.add_slider');
+    }
+    public function saveSlider(Request $request){
+
+        $this->slider->title=$request->title;
+        $this->slider->description=$request->description;
+        $this->slider->publication_status=$request->publication_status == null?0:1;
+
+        $image=$request->file('image');
+        $image_name=str_random(20);
+        $ext=strtolower($image->getClientOriginalExtension());
+        $image_full_name=$image_name.'.'.$ext;
+        $upload_path = 'slider/';
+        $image_url=$upload_path.$image_full_name;
+        $success=$image->move($upload_path,$image_url);
+        if($success){
+            $this->slider->image=$image_url;
+            $this->slider->save();
+            Session::put('message','Slider saved with image');
+            return redirect(route('add_slider'));
+        }
+        $this->slider->image='';
+        $this->slider->save();
+        Session::put('message','Slider saved without image');
+        return redirect(route('add_slider'));
+    }
+    public  function  activeSlider($id){
+        $this->slider = Slider::find($id);
+        $this->slider->publication_status=1;
+        $this->slider->save();
+        Session::put('message','Product activated successfully');
+        return redirect(route('all_sliders'));
+    }
+    public  function  inactiveSlider($id){
+        $this->slider = Slider::find($id);
+        $this->slider->publication_status=0;
+        $this->slider->save();
+        Session::put('message','Product inactivated successfully');
+        return redirect(route('all_sliders'));
+    }
+
+    public function deleteSlider($id){
+        $this->slider = Slider::find($id);
+        $this->slider->delete();
+        Session::put('message','Product deleted successfully');
+        return redirect(route('all_sliders'));
+    }
+
+    public function editSlider($id){
+        $this->slider=Slider::find($id);
+        return view('slider.edit_slider',['slider'=>$this->slider]);
+    }
+    public function updateSlider(Request $request,$id){
+        $this->slider=Slider::find($id);
+        $this->slider->title=$request->title;
+        $this->slider->description=$request->description;
+        if($request->file('image')!= null){
+            $image=$request->file('image');
+            $image_name=str_random(20);
+            $ext=strtolower($image->getClientOriginalExtension());
+            $image_full_name=$image_name.'.'.$ext;
+            $upload_path = 'slider/';
+            $image_url=$upload_path.$image_full_name;
+            $success=$image->move($upload_path,$image_url);
+            if($success){
+                $this->slider->image=$image_url;
+                $this->slider->save();
+                Session::put('message','Slider updated Successfully');
+                return redirect(route('all_sliders'));
+            }
+            $this->slider->image='';
+            $this->slider->save();
+            Session::put('message','Slider updated Successfully without image');
+            return redirect(route('all_sliders'));
+        }
+        else{
+            $this->slider->save();
+            Session::put('message','Product updated Successfully');
+            return redirect(route('all_sliders'));
+        }
+
+    }
+}
