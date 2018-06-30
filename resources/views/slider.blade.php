@@ -19,6 +19,7 @@
                             <div class="item {{$loop->first ?'active':""}}">
                                 <div class="col-sm-12" style="padding-right:30px;">
                                     <div class="pricing">
+
                                         <h2>{{$slider->title}}</h2>
                                         <p>{{$slider->description}}</p>
                                     </div>
