@@ -24,18 +24,18 @@ class AdminController extends Controller
         if($result){
             Session::put('admin_name',$result->name);
             Session::put('admin_id',$result->id);
-            return redirect()->route('ad');
+            return redirect(route('dashboard'));
 
         }
         else{
 
             Session::put('message','Invalid email or password');
-            return redirect('/admin');
+            return redirect(route('admin'));
         }
     }
     public function logout()
     {
         Session::flush();
-        return redirect('/admin');
+        return redirect(route('admin'));
     }
 }

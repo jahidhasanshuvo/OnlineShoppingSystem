@@ -43,14 +43,20 @@
                             <h2>{{$product->name}}</h2>
                             <img src="{{asset('frontend/images/product-details/rating.png')}}" alt="" />
                             <span>
-									<span>TK. {{$product->price}}</span>
-									<label>Quantity:</label>
-									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
-								</span>
+								<span>TK. {{$product->price}}</span>
+                                <label> Write size-color<b style="color: red;">(hint:xl-red)</b></label>
+                                <form action="{{route('add_to_cart')}}" method="post">
+                                    {{csrf_field()}}
+                                    <textarea name="order_description"></textarea>
+                                    <label>Quantity:</label>
+                                    <input type="number" value="1" name="qty"/>
+                                    <input type="hidden" value="{{$product->id}}" name="product_id">
+                                    <button type="submit" class="btn btn-fefault cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        Add to cart
+                                    </button>
+                                </form>
+                            </span>
                             <p><b>Availability:</b>@if($product->publication_status)Available @else Not Available @endif</p>
                             <p><b>Short Description:</b> {{$product->short_description}}</p>
                             <p><b>Long Description:</b> {{$product->short_description}}</p>

@@ -21,11 +21,17 @@ Route::get('/homepage','HomeController@homepage')->middleware('CheckUser');
 Route::get('/','HomeController@index');
 Route::get('/search_by_category/{id}','HomeController@searchByCategory')->name('search_by_category');
 
+//Cart Controller
+Route::post('/add_to_cart','ShoppingCartController@add_to_cart')->name('add_to_cart');
+Route::post('/update_cart','ShoppingCartController@update_cart')->name('update_cart');
+Route::get('/shopping_cart','ShoppingCartController@shopping_cart')->name('shopping_cart');
+Route::get('/delete_cart/{rowId}','ShoppingCartController@delete_cart')->name('delete_cart');
+
 
 //////////////////// Backend Routing ////////////////////////////////
 //Admin Controller
-Route::get('/admin','AdminController@index');
-Route::get('/dashboard','AdminController@showDashboard');
+Route::get('/admin','AdminController@index')->name('admin');
+Route::get('/dashboard','AdminController@showDashboard')->name('dashboard');
 Route::post('/admin_dashboard','AdminController@dashboard');
 Route::get('/logout','AdminController@logout');
 

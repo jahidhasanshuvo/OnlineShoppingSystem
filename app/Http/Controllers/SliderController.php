@@ -50,21 +50,21 @@ class SliderController extends Controller
         $this->slider = Slider::find($id);
         $this->slider->publication_status=1;
         $this->slider->save();
-        Session::put('message','Product activated successfully');
+        Session::put('message','Slider activated successfully');
         return redirect(route('all_sliders'));
     }
     public  function  inactiveSlider($id){
         $this->slider = Slider::find($id);
         $this->slider->publication_status=0;
         $this->slider->save();
-        Session::put('message','Product inactivated successfully');
+        Session::put('message','Slider inactivated successfully');
         return redirect(route('all_sliders'));
     }
 
     public function deleteSlider($id){
         $this->slider = Slider::find($id);
         $this->slider->delete();
-        Session::put('message','Product deleted successfully');
+        Session::put('message','Slider deleted successfully');
         return redirect(route('all_sliders'));
     }
 
@@ -97,7 +97,7 @@ class SliderController extends Controller
         }
         else{
             $this->slider->save();
-            Session::put('message','Product updated Successfully');
+            Session::put('message','Slider updated Successfully');
             return redirect(route('all_sliders'));
         }
 

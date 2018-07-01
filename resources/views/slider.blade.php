@@ -1,4 +1,3 @@
-@extends('layout')
 @section('slider')
 <section id="slider"><!--slider-->
     <div class="container">
@@ -41,4 +40,4 @@
         </div>
     </div>
 </section>
-    @endsection
+@endsection
