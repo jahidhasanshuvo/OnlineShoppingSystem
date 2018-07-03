@@ -20,10 +20,8 @@ class ShoppingCartController extends Controller
         $data['price'] = $product->price;
         $data['options']['image'] = $product->image;
         $data['options']['description'] = $description;
-        $cart = $data;
         Cart::add($data);
         Session::save();
-
         return redirect(route('shopping_cart'));
     }
 

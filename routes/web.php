@@ -27,11 +27,17 @@ Route::post('/update_cart','ShoppingCartController@update_cart')->name('update_c
 Route::get('/shopping_cart','ShoppingCartController@shopping_cart')->name('shopping_cart');
 Route::get('/delete_cart/{rowId}','ShoppingCartController@delete_cart')->name('delete_cart');
 
+//CheckoutController
+Route::get('/login','CheckoutController@login')->name('login');
+Route::post('/register_customer','CheckoutController@register_customer')->name('register_customer');
+Route::get('/checkout','CheckoutController@checkout')->name('checkout');
+
 
 //////////////////// Backend Routing ////////////////////////////////
 //Admin Controller
+
 Route::get('/admin','AdminController@index')->name('admin');
-Route::get('/dashboard','AdminController@showDashboard')->name('dashboard');
+Route::get('/dashboard','AdminController@showDashboard')->name('dashboard')->middleware('CheckUser');
 Route::post('/admin_dashboard','AdminController@dashboard');
 Route::get('/logout','AdminController@logout');
 

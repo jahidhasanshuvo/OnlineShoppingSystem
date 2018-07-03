@@ -17,13 +17,13 @@ class CheckUser
      */
     public function handle($request, Closure $next)
     {
-        $value =Session::get('admin');
+        $value =Session::get('admin_id');
 
-        if($value==1){
+        if($value>0){
             return $next($request);
         }else {
             Session::put('url', URL::current());
-            return redirect('/login');
+            return redirect('/admin');
         }
 
     }
