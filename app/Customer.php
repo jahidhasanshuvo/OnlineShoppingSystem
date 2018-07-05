@@ -13,4 +13,7 @@ class Customer extends Model
     protected $hidden=[
         'password'
     ];
+    public function order(){
+        return $this->belongsToMany(Order::class);
+    }
 }

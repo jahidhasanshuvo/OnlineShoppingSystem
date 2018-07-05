@@ -4,9 +4,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-sm-offset-1">
+                    <p class="label-danger"><?php
+                    if(Session::get('message')){
+                        echo Session::get('message');
+                        Session::put('message',null);
+                    }
+                    ?>
+                    </p>
+
                     <div class="login-form"><!--login form-->
                         <h2>Login to your account</h2>
-                        <form action="#">
+                        <form action="{{route('customer_login')}}" method="post">
+                            {{csrf_field()}}
                             <input type="email" placeholder="Email Address" name="email"/>
                             <input type="password" placeholder="Password" name="password"/>
                             <span>
