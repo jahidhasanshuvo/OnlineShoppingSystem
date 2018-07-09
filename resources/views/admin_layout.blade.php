@@ -2,10 +2,8 @@
 <html lang="en">
 
 <head>
-
-    <!-- start: Meta -->
     <meta charset="utf-8">
-    <title>Admin Panel</title>
+    <title>@yield('title')</title>
     <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
@@ -60,10 +58,6 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="dropdown-menu-title">
-                                <span>Account Settings</span>
-                            </li>
-                            <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
                             <li><a href="{{url('/logout')}}"><i class="halflings-icon off"></i> Logout</a></li>
                         </ul>
                     </li>
@@ -92,11 +86,9 @@
                     </li>
                     <li><a href="{{route('all_orders')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Orders</span></a>
                     </li>
-                    <li><a href="widgets.html"><i class="icon-dashboard"></i><span
-                                    class="hidden-tablet"> Add brands</span></a></li>
                     <li>
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span
-                                    class="label label-success"> 2 </span></a>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products  <span
+                                        class="halflings-icon arrow-down"></span></span></a>
                         <ul>
                             <li><a class="submenu" href="{{route('all_products')}}"><i class="icon-file-alt"></i><span
                                             class="hidden-tablet">All Products</span></a></li>
@@ -106,8 +98,8 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sliders</span><span
-                                    class="label label-success"> 2 </span></a>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sliders <span
+                                        class="halflings-icon arrow-down"></span></span></a>
                         <ul>
                             <li><a class="submenu" href="{{route('all_sliders')}}"><i class="icon-file-alt"></i><span
                                             class="hidden-tablet">All Sliders</span></a></li>
@@ -115,10 +107,6 @@
                                             class="hidden-tablet"> Add Sliders</span></a></li>
 
                         </ul>
-                    </li>
-                    <li><a href="chart.html"><i class="icon-list-alt"></i><span
-                                    class="hidden-tablet"> Social Link</span></a></li>
-                    <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a>
                     </li>
                     <li><a href="gallery.html"><i class="icon-picture"></i><span
                                     class="hidden-tablet"> Delivery man</span></a></li>
@@ -146,56 +134,26 @@
     </div><!--/#content.span10-->
 </div><!--/fluid-row-->
 
-<div class="modal hide fade" id="myModal">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">×</button>
-        <h3>Settings</h3>
-    </div>
-    <div class="modal-body">
-        <p>Here settings can be configured...</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
-    </div>
-</div>
-
-<div class="clearfix"></div>
 
 <footer>
 
     <p>
-        <span style="text-align:left;float:left">&copy; 2018 <a href="http://bootstrapmaster.com/"
-                                                                alt="Bootstrap Themes"></a></span>
-        <span class="hidden-phone" style="text-align:right;float:right">Powered by: Md.Jahid Hasan Shuvo</span>
+        <span class="footer-bottom">Powered by: Md.Jahid Hasan Shuvo</span>
     </p>
 
 </footer>
 
 <!-- start: JavaScript-->
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
 
-<script src="{{asset('backend/js/jquery.ui.touch-punch.js')}}"></script>
-
-<script src="{{asset('backend/js/modernizr.js')}}"></script>
-
 <script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
-
-<script src="{{asset('backend/js/jquery.cookie.js')}}"></script>
 
 <script src="{{asset('backend/js/fullcalendar.min.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
-
-<script src="{{asset('backend/js/excanvas.js')}}"></script>
-<script src="{{asset('backend/js/jquery.flot.js')}}"></script>
-<script src="{{asset('backend/js/jquery.flot.pie.js')}}"></script>
-<script src="{{asset('backend/js/jquery.flot.stack.js')}}"></script>
-<script src="{{asset('backend/js/jquery.flot.resize.min.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.chosen.min.js')}}"></script>
 
@@ -203,17 +161,14 @@
 
 <script src="{{asset('backend/js/jquery.cleditor.min.js')}}"></script>
 
-<script src="{{asset('backend/js/jquery.noty.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.elfinder.min.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.raty.min.js')}}"></script>
 
-<script src="{{asset('backend/js/jquery.iphone.toggle.js')}}   hjjfnbkphiwj;onro"></script>
+<script src="{{asset('backend/js/jquery.iphone.toggle.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.uploadify-3.1.min.js')}}"></script>
-
-<script src="{{asset('backend/js/jquery.gritter.min.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.imagesloaded.js')}}"></script>
 
@@ -222,11 +177,6 @@
 <script src="{{asset('backend/js/jquery.knob.modified.js')}}"></script>
 
 <script src="{{asset('backend/js/jquery.sparkline.min.js')}}"></script>
-
-<script src="{{asset('backend/js/counter.js')}}"></script>
-
-<script src="{{asset('backend/js/retina.js')}}"></script>
-
 <script src="{{asset('backend/js/custom.js')}}"></script>
 <script src="{{asset('backend/js/bootbox.min.js')}}"></script>
 <script src="{{asset('backend/js/printPreview.js')}}"></script>

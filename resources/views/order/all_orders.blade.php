@@ -1,4 +1,5 @@
 @extends('admin_layout')
+@section('title','Order Page')
 @section('admin_content')
     <div class="box span12">
         <div class="box-header" data-original-title>
