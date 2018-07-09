@@ -6,16 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable=[
+        'customer_id','payment_id','shipping_id','total','status'
+    ];
     public function shipping(){
-        return $this->hasOne(Shipping::class);
+        return $this->belongsTo(Shipping::class);
     }
     public function payment(){
-        return $this->hasOne(Payment::class);
+        return $this->belongsTo(Payment::class);
     }
     public function customer(){
-        return $this->hasOne(Customer::class);
+        return $this->belongsTo(Customer::class);
     }
     public function order_details(){
-        return $this->belongsToMany(OrderDetail::class);
+        return $this->hasMany(OrderDetail::class);
     }
 }

@@ -53,11 +53,17 @@ class CheckoutController extends Controller
         $customer->email = $request->email;
         $customer->password = md5($request->password);
         $customer->mobile_number = $request->mobile_number;
-
-        $customer->save();
-        Session::put('customer_id', $customer->id);
-        Session::put('customer_name', $customer->name);
-        return redirect(route('checkout'));
+        if(!$customer->validate()){
+            Session::put('errors',$customer->errors);
+            //Session::put('errors',null);
+            return redirect(route('login'));
+        }
+        else{
+            $customer->save();
+            Session::put('customer_id', $customer->id);
+            Session::put('customer_name', $customer->name);
+            return redirect(route('checkout'));
+        }
     }
 
     public function checkout()

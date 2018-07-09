@@ -10,6 +10,6 @@ class Shipping extends Model
       'name','city','address','mobile_number'
     ];
     public function order(){
-        return $this->belongsTo(Order::class);
+        return $this->hasOne(Order::class);
     }
 }

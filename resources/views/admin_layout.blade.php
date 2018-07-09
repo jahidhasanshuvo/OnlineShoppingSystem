@@ -15,7 +15,8 @@
     <link href="{{asset('backend/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
     <link id="base-style" href="{{asset('backend/css/style.css')}}" rel="stylesheet">
     <link id="base-style-responsive" href="{{asset('backend/css/style-responsive.css')}}" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext'
+          rel='stylesheet' type='text/css'>
     <!-- end: CSS -->
 
 
@@ -34,8 +35,6 @@
     <!-- end: Favicon -->
 
 
-
-
 </head>
 
 <body>
@@ -43,7 +42,8 @@
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+            <a class="btn btn-navbar" data-toggle="collapse"
+               data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -84,30 +84,44 @@
         <div id="sidebar-left" class="span2">
             <div class="nav-collapse sidebar-nav">
                 <ul class="nav nav-tabs nav-stacked main-menu">
-                    <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>
-                    <li><a href="{{route('all_categories')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> All Category</span></a></li>
-                    <li><a href="{{route('add_categories')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> Add Category</span></a></li>
-                    <li><a href="ui.html"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Brands</span></a></li>
-                    <li><a href="widgets.html"><i class="icon-dashboard"></i><span class="hidden-tablet"> Add brands</span></a></li>
+                    <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a>
+                    </li>
+                    <li><a href="{{route('all_categories')}}"><i class="icon-envelope"></i><span class="hidden-tablet"> All Category</span></a>
+                    </li>
+                    <li><a href="{{route('add_categories')}}"><i class="icon-tasks"></i><span class="hidden-tablet"> Add Category</span></a>
+                    </li>
+                    <li><a href="{{route('all_orders')}}"><i class="icon-eye-open"></i><span class="hidden-tablet"> All Orders</span></a>
+                    </li>
+                    <li><a href="widgets.html"><i class="icon-dashboard"></i><span
+                                    class="hidden-tablet"> Add brands</span></a></li>
                     <li>
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span class="label label-success"> 2 </span></a>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Products</span><span
+                                    class="label label-success"> 2 </span></a>
                         <ul>
-                            <li><a class="submenu" href="{{route('all_products')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Products</span></a></li>
-                            <li><a class="submenu" href="{{route('add_product')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Products</span></a></li>
+                            <li><a class="submenu" href="{{route('all_products')}}"><i class="icon-file-alt"></i><span
+                                            class="hidden-tablet">All Products</span></a></li>
+                            <li><a class="submenu" href="{{route('add_product')}}"><i class="icon-file-alt"></i><span
+                                            class="hidden-tablet"> Add Products</span></a></li>
 
                         </ul>
                     </li>
                     <li>
-                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sliders</span><span class="label label-success"> 2 </span></a>
+                        <a class="dropmenu" href="#"><i class="icon-folder-close-alt"></i><span class="hidden-tablet"> Sliders</span><span
+                                    class="label label-success"> 2 </span></a>
                         <ul>
-                            <li><a class="submenu" href="{{route('all_sliders')}}"><i class="icon-file-alt"></i><span class="hidden-tablet">All Sliders</span></a></li>
-                            <li><a class="submenu" href="{{route('add_slider')}}"><i class="icon-file-alt"></i><span class="hidden-tablet"> Add Sliders</span></a></li>
+                            <li><a class="submenu" href="{{route('all_sliders')}}"><i class="icon-file-alt"></i><span
+                                            class="hidden-tablet">All Sliders</span></a></li>
+                            <li><a class="submenu" href="{{route('add_slider')}}"><i class="icon-file-alt"></i><span
+                                            class="hidden-tablet"> Add Sliders</span></a></li>
 
                         </ul>
                     </li>
-                    <li><a href="chart.html"><i class="icon-list-alt"></i><span class="hidden-tablet"> Social Link</span></a></li>
-                    <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a></li>
-                    <li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Delivery man</span></a></li>
+                    <li><a href="chart.html"><i class="icon-list-alt"></i><span
+                                    class="hidden-tablet"> Social Link</span></a></li>
+                    <li><a href="typography.html"><i class="icon-font"></i><span class="hidden-tablet"> Shop Name</span></a>
+                    </li>
+                    <li><a href="gallery.html"><i class="icon-picture"></i><span
+                                    class="hidden-tablet"> Delivery man</span></a></li>
                 </ul>
             </div>
         </div>
@@ -116,7 +130,8 @@
         <noscript>
             <div class="alert alert-block span10">
                 <h4 class="alert-heading">Warning!</h4>
-                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
+                <p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a>
+                    enabled to use this site.</p>
             </div>
         </noscript>
 
@@ -150,14 +165,15 @@
 <footer>
 
     <p>
-        <span style="text-align:left;float:left">&copy; 2018 <a href="http://bootstrapmaster.com/" alt="Bootstrap Themes"></a></span>
+        <span style="text-align:left;float:left">&copy; 2018 <a href="http://bootstrapmaster.com/"
+                                                                alt="Bootstrap Themes"></a></span>
         <span class="hidden-phone" style="text-align:right;float:right">Powered by: Md.Jahid Hasan Shuvo</span>
     </p>
 
 </footer>
 
 <!-- start: JavaScript-->
-
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
 
@@ -213,22 +229,43 @@
 
 <script src="{{asset('backend/js/custom.js')}}"></script>
 <script src="{{asset('backend/js/bootbox.min.js')}}"></script>
-
+<script src="{{asset('backend/js/printPreview.js')}}"></script>
 
 <script>
-    $(document).on("click","#delete",function(e){
+    $(document).on("click", "#delete", function (e) {
         e.preventDefault();
         var link = $(this).attr("href");
-        bootbox.confirm("Are you want delete!!",function (confirmed) {
-            if(confirmed){
+        bootbox.confirm("Are you want delete!!", function (confirmed) {
+            if (confirmed) {
                 window.location.href = link;
-            };
+            }
+            ;
         });
     });
-
 </script>
-<!-- end: JavaScript-->
+<script type="text/javascript">
+    $(function () {
+        $("#btnPrint").printPreview({
+            obj2print: '#masterContent',
+            width: '810'
 
+            /*optional properties with default values*/
+            //obj2print:'body',     /*if not provided full page will be printed*/
+            //style:'',             /*if you want to override or add more css assign here e.g: "<style>#masterContent:background:red;</style>"*/
+            //width: '670',         /*if width is not provided it will be 670 (default print paper width)*/
+            //height:screen.height, /*if not provided its height will be equal to screen height*/
+            //top:0,                /*if not provided its top position will be zero*/
+            //left:'center',        /*if not provided it will be at center, you can provide any number e.g. 300,120,200*/
+            //resizable : 'yes',    /*yes or no default is yes, * do not work in some browsers*/
+            //scrollbars:'yes',     /*yes or no default is yes, * do not work in some browsers*/
+            //status:'no',          /*yes or no default is yes, * do not work in some browsers*/
+            //title:'Print Preview' /*title of print preview popup window*/
+
+        });
+    });
+</script>
+
+<!-- end: JavaScript-->
 </body>
 
 

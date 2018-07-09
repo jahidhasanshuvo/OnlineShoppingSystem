@@ -5,11 +5,11 @@
             <div class="row">
                 <div class="col-sm-3 col-sm-offset-1">
                     <p class="label-danger"><?php
-                    if(Session::get('message')){
-                        echo Session::get('message');
-                        Session::put('message',null);
-                    }
-                    ?>
+                        if (Session::get('message')) {
+                            echo Session::get('message');
+                            Session::put('message', null);
+                        }
+                        ?>
                     </p>
 
                     <div class="login-form"><!--login form-->
@@ -30,6 +30,17 @@
                     <h2 class="or">OR</h2>
                 </div>
                 <div class="col-sm-4">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                                <?php Session::put('errors', null);
+                                ?>
+                            </ul>
+                        </div>
+                    @endif
                     <div class="signup-form"><!--sign up form-->
                         <h2>New User Signup!</h2>
                         <form action="{{route('register_customer')}}" method="post">

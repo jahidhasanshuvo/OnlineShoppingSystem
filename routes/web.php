@@ -74,3 +74,9 @@ Route::post('/update_slider/{id}','SliderController@updateSlider');
 Route::get('/delete_slider/{id}','SliderController@deleteSlider');
 Route::get('/inactive_slider/{id}','SliderController@inactiveSlider');
 Route::get('/active_slider/{id}','SliderController@activeSlider');
+
+//Order Controller
+Route::get('all_orders','OrderController@index')->name('all_orders');
+Route::get('order_details/{id}','OrderController@order_details')->name('order_details');
+Route::get('edit_order/{id}','OrderController@edit_order')->name('edit_order');
+Route::post('update_order/{id}','OrderController@update_order')->name('update_order');
