@@ -9,7 +9,7 @@
                             <h2>Customer & Shipping Details</h2>
                         </div>
                         <div class="box-content">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-bordered table-hover">
                                 <tr>
                                     <td>Customer Name :</td>
                                     <td>{{$order->customer->name}}</td>
@@ -47,7 +47,7 @@
                             <h2>Payment Details</h2>
                         </div>
                         <div class="box-content">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-bordered table-hover">
                                 <tr>
                                     <td>Payment Status:</td>
                                     <td>{{$order->payment->status}}</td>
@@ -73,7 +73,7 @@
                             <h2>Order Details</h2>
                         </div>
                         <div class="box-content">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-bordered table-hover">
                                 <thead class="box-header">
                                 <th>Product Name</th>
                                 <th>Quantity</th>

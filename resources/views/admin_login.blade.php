@@ -9,32 +9,87 @@
     <!-- start: Mobile Specific -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- end: Mobile Specific -->
-
-    <!-- start: CSS -->
-    <link id="bootstrap-style" href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('backend/css/bootstrap-responsive.min.css')}}" rel="stylesheet">
-    <link id="base-style" href="{{asset('backend/css/style.css')}}" rel="stylesheet">
-    <link id="base-style-responsive" href="{{asset('backend/css/style-responsive.css')}}" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- end: CSS -->
-
-
-    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <link id="ie-style" href="{{asset('backend/css/ie.css')}}" rel="stylesheet">
-    <![endif]-->
-
-    <!--[if IE 9]>
-    <link id="ie9style" href="{{asset('backend/css/ie9.css')}}" rel="stylesheet">
-    <![endif]-->
-
-    <!-- start: Favicon -->
-    <link rel="shortcut icon" href="URL::to('backend/img/favicon.ico')">
-    <!-- end: Favicon -->
-
+    <link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet" id="bootstrap-css">
     <style type="text/css">
-        body { background: url(backend/img/bg-login.jpg) !important; }
+        body{
+            background: url({{asset('backend/img/bg-login.jpg')}}) no-repeat center center fixed;
+        }
+        .form-signin
+        {
+            max-width: 330px;
+            padding: 15px;
+            margin: 0 auto;
+        }
+        .form-signin .form-signin-heading, .form-signin .checkbox
+        {
+            margin-bottom: 10px;
+        }
+        .form-signin .checkbox
+        {
+            font-weight: normal;
+        }
+        .form-signin .form-control
+        {
+            position: relative;
+            font-size: 16px;
+            height: auto;
+            padding: 10px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .form-signin .form-control:focus
+        {
+            z-index: 2;
+        }
+        .form-signin input[type="text"]
+        {
+            margin-bottom: -1px;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .form-signin input[type="password"]
+        {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        .account-wall
+        {
+            margin-top: 20px;
+            padding: 40px 0px 20px 0px;
+            background-color: #f7f7f7;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        }
+        .login-title
+        {
+            color: #555;
+            font-size: 18px;
+            font-weight: 400;
+            display: block;
+        }
+        .profile-img
+        {
+            width: 96px;
+            height: 96px;
+            margin: 0 auto 10px;
+            display: block;
+            -moz-border-radius: 50%;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+        .need-help
+        {
+            margin-top: 10px;
+        }
+        .new-account
+        {
+            display: block;
+            margin-top: 10px;
+        }
+
     </style>
 
 
@@ -42,74 +97,41 @@
 </head>
 
 <body>
-<div class="container-fluid-full">
-    <div class="row-fluid">
 
-        <div class="row-fluid">
-            <div class="login-box">
-                <div class="icons">
-                    <a href="index.html"><i class="halflings-icon home"></i></a>
-                    <a href="#"><i class="halflings-icon cog"></i></a>
-                </div>
-                <h2>Login to your account</h2>
-                <form class="form-horizontal" action="{{url('/admin_dashboard')}}" method="post">
-                    {{csrf_field()}}
-                    <fieldset>
-                        <p class="alert-danger">
-                            <?php
-                                $msg=Session::get('message');
-                                if($msg){
-                                    echo $msg;
-                                    Session::put('message',null);
-                                }
-                            ?>
-                        </p>
-                        <div class="input-prepend" title="Username">
-                            <span class="add-on"><i class="halflings-icon user"></i></span>
-                            <input class="input-large span10" name="email" id="username" type="text" placeholder="type email"/>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <div class="input-prepend" title="Password">
-                            <span class="add-on"><i class="halflings-icon lock"></i></span>
-                            <input class="input-large span10" name="password" id="password" type="password" placeholder="type password"/>
-                        </div>
-                        <div class="clearfix"></div>
-
-                        <label class="remember" for="remember"><input type="checkbox" id="remember" />Remember me</label>
-
-                        <div class="button-login">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
-                        <div class="clearfix"></div>
-                        </fieldset>
-                </form>
-                <hr>
-                <h3>Forgot Password?</h3>
-                <p>
-                    No problem, <a href="#">click here</a> to get a new password.
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Sign in to continue your work</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="{{asset('backend/img/icon-user-200x200.png?sz=120')}}"
+                     alt="">
+                <p class="text-center alert-danger">
+                    <?php
+                    $msg=Session::get('message');
+                    if($msg){
+                        echo $msg;
+                        Session::put('message',null);
+                    }
+                    ?>
                 </p>
-            </div><!--/span-->
-        </div><!--/row-->
-
-
-    </div><!--/.fluid-container-->
-
-</div><!--/fluid-row-->
-
-<!-- start: JavaScript-->
-
-<script src="{{asset('backend/js/jquery-1.9.1.min.js')}}"></script>
-<script src="{{asset('backend/js/jquery-migrate-1.0.0.min.js')}}"></script>
-<script src="{{asset('backend/js/jquery-ui-1.10.0.custom.min.js')}}"></script>
-<script src="{{asset('backend/js/modernizr.js')}}"></script>
+                <form class="form-signin" action="{{url('/admin_dashboard')}}" method="post">
+                    {{csrf_field()}}
+                    <input type="text" name="email" class="form-control" placeholder="Email" required autofocus>
+                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                        Sign in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('backend/js/jquery.cookie.js')}}"></script>
-<script src="{{asset('backend/js/excanvas.js')}}"></script>
-<script src="{{asset('backend/js/jquery.uniform.min.js')}}"></script>
-<script src="{{asset('backend/js/custom.js')}}"></script>
-<!-- end: JavaScript-->
+<script src="{{asset('backend/jquery-1.10.2.min.js')}}"></script>
 
 </body>
 
 </html>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
