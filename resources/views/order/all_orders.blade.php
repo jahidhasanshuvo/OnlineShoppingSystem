@@ -1,7 +1,8 @@
 @extends('admin_layout')
 @section('title','Order Page')
 @section('admin_content')
-    <h2><span class="break"></span>All Orders List</h2>
+
+    <h2>All Orders List</h2>
     <p class="alert-success">
         <?php
         if (Session::get('message')) {
@@ -10,39 +11,41 @@
         }
         ?>
     </p>
-    <table class="table table-hover">
-        <thead class="greenLight">
-        <tr>
-            <th>Order<br> ID</th>
-            <th>Customer<br> Name</th>
-            <th>Customer<br> Phone</th>
-            <th>Order<br> Status</th>
-            <th>Payment<br> Status</th>
-            <th>City</th>
-            <th>Address</th>
-            <th>Actions</th>
-        </tr>
+    <table class="table table-hover" id="myTable">
+        <thead class="label-success">
+        <th>ID</th>
+        <th>Order Status</th>
+        <th>Customer name</th>
+        <th>Mobile Number</th>
+        <th>Payment Status</th>
+        <th>Shipping City</th>
+        <th>Address</th>
+        <th style="width: 100px">Action</th>
         </thead>
-        @foreach($orders as $order)
-            <tbody>
-            <tr>
-                <td>{{$order->id}}</td>
-                <td>{{$order->customer->name}}</td>
-                <td>{{$order->customer->mobile_number}}</td>
-                <td class="center">{{$order->status}}</td>
-                <td class="center">{{$order->payment->status}}</td>
-                <td class="center">{{$order->shipping->city}}</td>
-                <td class="center">{{$order->shipping->address}}</td>
-                <td class="center">
-                    <a class="btn btn-default" href="{{route('order_details',['id'=>$order->id])}}">
-                        <i class="halflings-icon eye-open"></i>
-                    </a>
-                    <a class="btn btn-info" href="{{route('edit_order',['id'=>$order->id])}}">
-                        <i class="halflings-icon edit"></i>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-        @endforeach
     </table>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "ajax": "{{route('ajaxOrder')}}",
+                "columns": [
+                    {data: 'id'},
+                    {data: 'order_status', name: 'orders.status'},
+                    {data: 'name', name: 'customers.name'},
+                    {data: 'mobile_number', name: 'customers.mobile_number'},
+                    {data: 'payment_status', name: 'payments.status'},
+                    {data: 'city', name: 'shippings.city'},
+                    {data: 'address', name: 'shippings.address'},
+                    {
+                        data: 'action', name: 'action', orderable: false, searchable: false, render: function (data) {
+
+                            return '<a class="btn btn-danger" href="edit_order/' + data + '" ><i class="halflings-icon edit"><i></a> <a class="btn btn-info" href="order_details/' + data + '" ><i class="halflings-icon eye-open"><i></a>'
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 @endsection()

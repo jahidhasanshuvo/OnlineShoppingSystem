@@ -12,10 +12,16 @@
     <link rel="stylesheet" href="{{asset('backend/css/halflings.css')}}">
     <link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('backend/css/icon-font.min.css')}}">
+    <link rel="stylesheet" href="{{asset('backend/css/dataTables.bootstrap.min.css')}}">
 
     <!-- //lined-icons -->
     <script src="{{asset('backend/js/jquery-1.10.2.min.js')}}"></script>
-
+    <script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('backend/js/dataTables.bootstrap.min.js')}}"></script>
+<!--    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
+-->
 
 </head>
 <body>
@@ -74,7 +80,7 @@
 
             <div class="myfooter">
                 <div class="container">
-                    <h4 class="text-center">@Copyright 2018 Md.JAhid Hasan Shuvo</h4>
+                    <h4 class="text-center">@Copyright 2018 Md.Jahid Hasan Shuvo</h4>
                 </div>
             </div>
             <!--content-->
@@ -189,7 +195,6 @@
         });
     });
 </script>
-
 
 </body>
 </html>

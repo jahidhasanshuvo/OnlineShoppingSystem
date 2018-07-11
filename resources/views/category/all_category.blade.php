@@ -11,7 +11,7 @@
         ?>
     </p>
     <table class="table table-striped table-hover">
-        <thead class="greenLight">
+        <thead class="label-success">
         <tr>
             <th>Id</th>
             <th>Category Name</th>

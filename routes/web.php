@@ -69,14 +69,17 @@ Route::get('/product_details/{id}','ProductController@productDetails')->name('pr
 Route::get('/all_sliders','SliderController@index')->name('all_sliders');
 Route::get('/add_slider','SliderController@addSlider')->name('add_slider');
 Route::post('/save_slider','SliderController@saveSlider')->name('save_slider');
-Route::get('/edit_slider/{id}','SliderController@editSlider');
-Route::post('/update_slider/{id}','SliderController@updateSlider');
-Route::get('/delete_slider/{id}','SliderController@deleteSlider');
-Route::get('/inactive_slider/{id}','SliderController@inactiveSlider');
-Route::get('/active_slider/{id}','SliderController@activeSlider');
+Route::get('/edit_slider/{id}','SliderController@editSlider')->name('edit_slider');
+Route::post('/update_slider/{id}','SliderController@updateSlider')->name('edit_slider');
+Route::get('/delete_slider/{id}','SliderController@deleteSlider')->name('delete_slider');
+Route::get('/inactive_slider/{id}','SliderController@inactiveSlider')->name('inactive_slider');
+Route::get('/active_slider/{id}','SliderController@activeSlider')->name('active_slider');
+
+
 
 //Order Controller
 Route::get('all_orders','OrderController@index')->name('all_orders');
 Route::get('order_details/{id}','OrderController@order_details')->name('order_details');
 Route::get('edit_order/{id}','OrderController@edit_order')->name('edit_order');
 Route::post('update_order/{id}','OrderController@update_order')->name('update_order');
+Route::get('/ajaxOrder','OrderController@ajaxOrder')->name('ajaxOrder');

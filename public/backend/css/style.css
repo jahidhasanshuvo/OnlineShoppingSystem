@@ -45,8 +45,8 @@ a:hover { transition: all 200ms ease-in-out; }
     bottom:0;
     right:0;
     position: relative;
-    height:60px;
-    background-color: #b52e31;
+    height:50px;
+    background-color: rgb(17, 35, 17);
 }
 .myfooter h4{
     color: #CCCCCC;

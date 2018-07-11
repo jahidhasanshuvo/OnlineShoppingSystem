@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Yajra\DataTables\Facades\DataTables;
 
 
 class SliderController extends Controller
@@ -19,6 +20,13 @@ class SliderController extends Controller
        $sliders= $this->slider::all();
        return view('slider.all_sliders',['sliders' => $sliders]);
     }
+    public function ajaxSlider(){
+        $sliders= Slider::all();
+        return DataTables::of($sliders)->addColumn('action', function ($slider) {
+            return $slider->id;
+        })->make(true);
+    }
+
     public function addSlider(){
         return view('slider.add_slider');
     }
