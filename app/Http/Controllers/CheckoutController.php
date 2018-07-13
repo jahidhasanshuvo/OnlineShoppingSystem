@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\DeliveryMan;
 use App\Order;
 use App\OrderDetail;
 use App\Payment;
@@ -109,5 +110,11 @@ class CheckoutController extends Controller
         }
         Cart::destroy();
         return redirect(route('home'));
+    }
+
+    public function delivery_man(){
+        $customer=Customer::find(Session::get('customer_id'));
+        $delivery_man= $customer->order->sortByDesc('id')->first()->delivery_man;
+        return view('home.delivery_man',['delivery_man'=>$delivery_man]);
     }
 }

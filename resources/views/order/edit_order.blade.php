@@ -56,7 +56,7 @@
                                         <td>Delivery Man</td>
                                         <td>
                                             <select name="delivery_man">
-                                                <option>Select Delivery Man</option>
+                                                <option value="0">Select Delivery Man</option>
                                                 @foreach($delivery_man as $dm)
                                                     <option value="{{$dm->id}}"
                                                             @if($dm->id == $order->delivery_man_id) selected @endif>{{$dm->name}}
