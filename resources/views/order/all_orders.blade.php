@@ -35,7 +35,7 @@
                     {data: 'order_status', name: 'orders.status'},
                     {data: 'name', name: 'customers.name'},
                     {data: 'mobile_number', name: 'customers.mobile_number'},
-                    {data: 'payment_status', name: 'payments.status'},
+                    {data: 'payment_status', name: 'payments.status',searchable:false},
                     {data: 'city', name: 'shippings.city'},
                     {data: 'address', name: 'shippings.address'},
                     {

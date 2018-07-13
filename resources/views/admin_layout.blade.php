@@ -110,7 +110,7 @@
                 </li>
                 <li id="menu-academico"><a href="{{route('add_product')}}"><i class="fa fa-file-text-o"></i>
                         <span>Add Products</span></a></li>
-                <li id="menu-academico"><a href="shoes.html"><i class="lnr lnr-book"></i> <span>Shoes</span></a>
+                <li id="menu-academico"><a href="{{route('all_delivery_men')}}"><i class="lnr lnr-book"></i> <span>Delivery Men</span></a>
                 </li>
                 <li><a href="bags.html"><i class="lnr lnr-envelope"></i> <span>Bags</span></a></li>
                 <li><a href="products.html"><i class="lnr lnr-chart-bars"></i> <span>Watches</span></a></li>

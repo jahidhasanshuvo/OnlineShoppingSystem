@@ -1,4 +1,5 @@
 @extends('admin_layout')
+@section('title','Order Details Page')
 @section('admin_content')
     <div id="masterContent">
         <div class="container-fluid">
@@ -60,6 +61,15 @@
                                     <td>Transaction ID :</td>
                                     <td>{{$order->payment->tID}}</td>
                                 </tr>
+                                <tr>
+                                    <td>Delivery Boy</td>
+                                    @if($order->delivery_man_id)
+                                        <td>{{$order->delivery_man->name}}</td>
+                                    @else
+                                        <td>Not Selected Yet</td>
+                                    @endif
+
+                                </tr>
                             </table>
                         </div>
                     </div>
@@ -103,6 +113,6 @@
             </div>
         </div>
     </div>
-    <button id="btnPrint" class="btn-primary">  Print  Preview</button>
+    <button id="btnPrint" class="btn-primary"> Print Preview</button>
 
 @endsection()

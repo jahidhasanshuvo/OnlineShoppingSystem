@@ -83,3 +83,13 @@ Route::get('order_details/{id}','OrderController@order_details')->name('order_de
 Route::get('edit_order/{id}','OrderController@edit_order')->name('edit_order');
 Route::post('update_order/{id}','OrderController@update_order')->name('update_order');
 Route::get('/ajaxOrder','OrderController@ajaxOrder')->name('ajaxOrder');
+
+
+///Delivery Man Controller
+Route::get('/all_delivery_men','DeliveryManController@index')->name('all_delivery_men');
+Route::get('/add_delivery_man','DeliveryManController@add_delivery_man')->name('add_delivery_man');
+Route::post('/save_delivery_man','DeliveryManController@save_delivery_man')->name('save_delivery_man');
+Route::get('/edit_delivery_man/{id}','DeliveryManController@edit_delivery_man')->name('edit_delivery_man');
+Route::post('/update_delivery_man/{id}','DeliveryManController@update_delivery_man')->name('update_delivery_man');
+Route::get('/delete_delivery_man/{id}','DeliveryManController@delete_delivery_man')->name('delete_delivery_man');
+Route::get('ajax_delivery_man','DeliveryManController@ajax_delivery_man')->name('ajax_delivery_man');
