@@ -9,6 +9,9 @@
                     <li class="active">Shopping Cart</li>
                 </ol>
             </div>
+            @if(Cart::content()->count()<1)
+                <h4 class="alert-danger">You didn't shop anything</h4>
+            @endif
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>

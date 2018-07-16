@@ -6,7 +6,7 @@
         <h1>Thank You for your purchase</h1>
         <table class="table table-striped">
             <tr>
-                <td>Your Delivery Person name:</td>
+                <td>Your Last Delivery Person name:</td>
                 <td>{{$delivery_man->name}}</td>
             </tr>
             <tr>

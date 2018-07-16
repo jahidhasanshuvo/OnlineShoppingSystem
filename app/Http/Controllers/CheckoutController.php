@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
-use App\DeliveryMan;
 use App\Order;
 use App\OrderDetail;
 use App\Payment;
 use App\Shipping;
-use Cart;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -31,12 +30,12 @@ class CheckoutController extends Controller
         if ($result) {
             Session::put('customer_id', $result->id);
             Session::put('customer_name', $result->name);
-            return redirect()->back();
+            return redirect(url(Session::get('url')));
         } else {
             Session::put('message', 'Invalid Username or Password');
             return redirect(route('login'));
         }
-        return redirect(route('checkout'));
+        return redirect(url(Session::get('url')));
     }
 
     public function customer_logout()
@@ -62,18 +61,16 @@ class CheckoutController extends Controller
             $customer->save();
             Session::put('customer_id', $customer->id);
             Session::put('customer_name', $customer->name);
-            return redirect(route('checkout'));
+            return redirect(url(Session::get('url')));
         }
     }
 
     public function checkout()
     {
-        if (Session::get('customer_id')) {
-            return view('checkout.checkout');
-        } else {
-            return redirect(route('login'));
+        if(Cart::content()->count() <1){
+            return redirect(route('shopping_cart'));
         }
-
+        return view('checkout.checkout');
     }
 
     public function save_shipping_details(Request $request)
@@ -108,7 +105,7 @@ class CheckoutController extends Controller
             $order_details->save();
         }
         Cart::destroy();
-        return redirect(route('home'));
+        return redirect(route('delivery_man'));
     }
 
     public function delivery_man()
@@ -117,9 +114,8 @@ class CheckoutController extends Controller
         $order = $customer->order->sortByDesc('id')->first();
         if ($order) {
             $delivery_man = $order->delivery_man;
-        }
-        else {
-            $delivery_man="No Order";
+        } else {
+            $delivery_man = "No Order";
         }
         return view('home.delivery_man', ['delivery_man' => $delivery_man]);
     }

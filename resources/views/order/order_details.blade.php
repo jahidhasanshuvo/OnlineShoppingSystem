@@ -20,6 +20,10 @@
                                     <td>{{$order->customer->mobile_number}}</td>
                                 </tr>
                                 <tr>
+                                    <td>Shipping To:</td>
+                                    <td>{{$order->shipping->name}}</td>
+                                </tr>
+                                <tr>
                                     <td>Shipping City:</td>
                                     <td>{{$order->shipping->city}}</td>
                                 </tr>

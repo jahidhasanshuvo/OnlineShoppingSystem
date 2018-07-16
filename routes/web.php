@@ -33,7 +33,7 @@ Route::get('/login','CheckoutController@login')->name('login');
 Route::post('/customer_login','CheckoutController@customer_login')->name('customer_login');
 Route::get('/customer_logout','CheckoutController@customer_logout')->name('customer_logout');
 Route::post('/register_customer','CheckoutController@register_customer')->name('register_customer');
-Route::get('/checkout','CheckoutController@checkout')->name('checkout');
+Route::get('/checkout','CheckoutController@checkout')->name('checkout')->middleware('CheckCustomer');
 Route::post('/save_shipping_details','CheckoutController@save_shipping_details')->name('save_shipping_details');
 
 
