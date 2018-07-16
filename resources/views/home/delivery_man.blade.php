@@ -1,7 +1,9 @@
 @extends('layout')
 @section('content')
-    <h1>Thank You for your purchase</h1>
-    @if($delivery_man)
+    @if($delivery_man == "No Order")
+        <h1>You Didn't Order Anything</h1>
+    @elseif($delivery_man)
+        <h1>Thank You for your purchase</h1>
         <table class="table table-striped">
             <tr>
                 <td>Your Delivery Person name:</td>
@@ -16,7 +18,6 @@
                 <td><img src="{{asset($delivery_man->image)}}" height="350px" width="500px"></td>
             </tr>
         </table>
-
     @else
         <h3>Your order is processing .Please wait a few minitues</h3>
     @endif

@@ -54,12 +54,11 @@ class CheckoutController extends Controller
         $customer->email = $request->email;
         $customer->password = md5($request->password);
         $customer->mobile_number = $request->mobile_number;
-        if(!$customer->validate()){
-            Session::put('errors',$customer->errors);
+        if (!$customer->validate()) {
+            Session::put('errors', $customer->errors);
             //Session::put('errors',null);
             return redirect(route('login'));
-        }
-        else{
+        } else {
             $customer->save();
             Session::put('customer_id', $customer->id);
             Session::put('customer_name', $customer->name);
@@ -112,9 +111,16 @@ class CheckoutController extends Controller
         return redirect(route('home'));
     }
 
-    public function delivery_man(){
-        $customer=Customer::find(Session::get('customer_id'));
-        $delivery_man= $customer->order->sortByDesc('id')->first()->delivery_man;
-        return view('home.delivery_man',['delivery_man'=>$delivery_man]);
+    public function delivery_man()
+    {
+        $customer = Customer::find(Session::get('customer_id'));
+        $order = $customer->order->sortByDesc('id')->first();
+        if ($order) {
+            $delivery_man = $order->delivery_man;
+        }
+        else {
+            $delivery_man="No Order";
+        }
+        return view('home.delivery_man', ['delivery_man' => $delivery_man]);
     }
 }

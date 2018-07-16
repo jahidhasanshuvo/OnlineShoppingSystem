@@ -28,7 +28,7 @@ Route::get('/shopping_cart','ShoppingCartController@shopping_cart')->name('shopp
 Route::get('/delete_cart/{rowId}','ShoppingCartController@delete_cart')->name('delete_cart');
 
 //CheckoutController
-Route::get('/thanks','CheckoutController@delivery_man')->name('delivery_man');
+Route::get('/thanks','CheckoutController@delivery_man')->name('delivery_man')->middleware('CheckCustomer');
 Route::get('/login','CheckoutController@login')->name('login');
 Route::post('/customer_login','CheckoutController@customer_login')->name('customer_login');
 Route::get('/customer_logout','CheckoutController@customer_logout')->name('customer_logout');
