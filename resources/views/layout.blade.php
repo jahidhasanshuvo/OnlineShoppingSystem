@@ -61,6 +61,7 @@
                 <div class="col-sm-8">
                     <div class="shop-menu pull-right">
                         <ul class="nav navbar-nav">
+                            <li><a href="{{route('home')}}" class="active"><i class="fa fa-home"></i>Home</a></li>
                             <li><a href="{{route('delivery_man')}}"><i class="fa fa-user"></i> Delivery Man</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{route('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
@@ -76,45 +77,6 @@
             </div>
         </div>
     </div><!--/header-middle-->
-
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-9">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="mainmenu pull-left">
-                        <ul class="nav navbar-nav collapse navbar-collapse">
-                            <li><a href="{{route('home')}}" class="active">Home</a></li>
-                            <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="{{route('checkout')}}">Checkout</a></li>
-                                    <li><a href="{{route('shopping_cart')}}">Cart</a></li>
-                                    @if(Session::get('customer_id'))
-                                        <li><a href="{{route('customer_logout')}}">Logout</a></li>
-                                    @else
-                                        <li><a href="{{route('login')}}">Login</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header-bottom-->
 </header><!--/header-->
 
 <!--/slider--> @yield('slider')

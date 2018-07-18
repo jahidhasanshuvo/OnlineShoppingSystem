@@ -61,7 +61,7 @@ class CheckoutController extends Controller
             $customer->save();
             Session::put('customer_id', $customer->id);
             Session::put('customer_name', $customer->name);
-            return redirect(url(Session::get('url')));
+            return redirect(route('login'));
         }
     }
 

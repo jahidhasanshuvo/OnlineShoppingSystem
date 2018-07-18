@@ -14,11 +14,12 @@
                     ?>
                 </p>
                 <table class="table table-hover">
-                    <thead class="alert-warning">
+                    <thead class="alert-success">
                     <tr>
                         <th>Slider Image</th>
                         <th>Title</th>
                         <th>Description</th>
+                        <th>Position</th>
                         <th>Publication Status</th>
                         <th style="width:150px">Actions</th>
                     </tr>
@@ -29,6 +30,7 @@
                             <td class="center"><img src="{{$slider->image}}" height="150" width="400"></td>
                             <td>{{$slider->title}}</td>
                             <td class="center">{{$slider->description}}</td>
+                            <td class="center">{{$slider->position}}</td>
                             <td class="center">
                                 @if($slider->publication_status == 1)
                                     <span class="label label-success">Active</span>
@@ -60,6 +62,9 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="text-center">
+        {!! $sliders->links() !!}
     </div>
 
 @endsection()

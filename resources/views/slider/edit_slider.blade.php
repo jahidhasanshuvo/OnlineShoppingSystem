@@ -18,7 +18,7 @@
                 <fieldset>
                     {{csrf_field()}}
                     <div class="control-group">
-                        <label class="control-label">Product Name</label>
+                        <label class="control-label">Slider Title</label>
                         <div class="controls">
                             <input class="form-control" type="text" name="title" value="{{$slider->title}}" required="">
                         </div>
@@ -33,6 +33,12 @@
                         <label class="control-label">Upload Image</label>
                         <div class="controls">
                             <input class="form-control" type="file" name="image">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">Set position</label>
+                        <div class="controls">
+                            <input class="form-control" type="number" name="position" value="{{$slider->position}}" required="">
                         </div>
                     </div>
 

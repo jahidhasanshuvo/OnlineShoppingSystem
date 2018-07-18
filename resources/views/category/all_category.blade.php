@@ -58,6 +58,8 @@
 
         @endforeach
     </table>
-
+<div class="text-center">
+    {!! $all_category_info->links() !!}
+</div>
 
 @endsection()

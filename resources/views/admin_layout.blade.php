@@ -18,10 +18,10 @@
     <script src="{{asset('backend/js/jquery-1.10.2.min.js')}}"></script>
     <script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('backend/js/dataTables.bootstrap.min.js')}}"></script>
-<!--    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
--->
+    <!--    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
+    -->
 
 </head>
 <body>
@@ -94,7 +94,19 @@
         </header>
         <div class="menu">
             <ul id="menu">
-                <li><a href="index.html"><i class="fa fa-tachometer"></i> <span>Home</span></a></li>
+                <li><a href="{{route('report')}}"><i class="fa fa-tachometer"></i> <span>Reports</span></a></li>
+                @if(Session::get('access_level')== "Admin")
+                    <li id="menu-academico"><a href="#"><i class="fa fa-table"></i> <span>Admin Registration</span>
+                            <span
+                                    class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="{{route('all_admin')}}">All Admins</a>
+                            </li>
+                            <li id="menu-academico-avaliacoes"><a href="{{route('add_admin')}}">Add Admin</a>
+                            </li>
+                        </ul>
+                    </li>
+                @endif
                 <li id="menu-academico"><a href="#"><i class="fa fa-table"></i> <span>Categories</span> <span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">

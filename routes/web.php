@@ -39,11 +39,16 @@ Route::post('/save_shipping_details','CheckoutController@save_shipping_details')
 
 //////////////////// Backend Routing ////////////////////////////////
 //Admin Controller
+Route::get('/error','AdminController@error')->name('error');
+
 
 Route::get('/admin','AdminController@index')->name('admin');
 Route::get('/dashboard','AdminController@showDashboard')->name('dashboard')->middleware('CheckUser');
 Route::post('/admin_dashboard','AdminController@dashboard');
 Route::get('/logout','AdminController@logout');
+Route::get('/add_admin','AdminController@add_admin')->name('add_admin')->middleware('CheckAdmin');
+Route::post('/save_admin','AdminController@save_admin')->name('save_admin')->middleware('CheckAdmin');
+Route::get('/all_admin','AdminController@all_admin')->name('all_admin')->middleware('CheckAdmin');
 
 //category controller
 Route::get('/add_categories','CategoryController@addCategory')->name('add_categories');
@@ -94,3 +99,7 @@ Route::get('/edit_delivery_man/{id}','DeliveryManController@edit_delivery_man')-
 Route::post('/update_delivery_man/{id}','DeliveryManController@update_delivery_man')->name('update_delivery_man');
 Route::get('/delete_delivery_man/{id}','DeliveryManController@delete_delivery_man')->name('delete_delivery_man');
 Route::get('ajax_delivery_man','DeliveryManController@ajax_delivery_man')->name('ajax_delivery_man');
+
+//Report Controller
+Route::get('/report','ReportController@index')->name('report');
+Route::post('/sellingOnDate','ReportController@sellingOnDate')->name('sellingOnDate');

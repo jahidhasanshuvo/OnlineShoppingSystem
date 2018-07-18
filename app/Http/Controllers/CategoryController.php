@@ -18,7 +18,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $all_category_info = $this->category::all();
+        $all_category_info = $this->category->paginate(8);
         return view('category.all_category',['all_category_info' => $all_category_info]);
     }
 

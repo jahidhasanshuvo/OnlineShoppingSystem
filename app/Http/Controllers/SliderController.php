@@ -17,7 +17,7 @@ class SliderController extends Controller
     }
 
     public function index(){
-       $sliders= $this->slider::all();
+       $sliders= $this->slider->orderBy('position')->paginate(5);
        return view('slider.all_sliders',['sliders' => $sliders]);
     }
     public function ajaxSlider(){
@@ -35,6 +35,7 @@ class SliderController extends Controller
         $this->slider->title=$request->title;
         $this->slider->description=$request->description;
         $this->slider->publication_status=$request->publication_status == null?0:1;
+        $this->slider->position=$request->position ;
 
         $image=$request->file('image');
         $image_name=str_random(20);
@@ -84,6 +85,7 @@ class SliderController extends Controller
         $this->slider=Slider::find($id);
         $this->slider->title=$request->title;
         $this->slider->description=$request->description;
+        $this->slider->position=$request->position;
         if($request->file('image')!= null){
             $image=$request->file('image');
             $image_name=str_random(20);

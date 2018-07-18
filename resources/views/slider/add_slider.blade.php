@@ -42,6 +42,13 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="control-label">Set position</label>
+                            <div class="controls">
+                                <input class="form-control" type="number" name="position" required="">
+                            </div>
+                        </div>
+
                         <div class="form-actions greenLight">
                             <button type="submit" class="btn btn-primary">Save changes</button>
                             <button type="reset" class="btn">Reset</button>
