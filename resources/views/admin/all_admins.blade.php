@@ -1,7 +1,7 @@
 @extends('admin_layout')
-@section('title','All Categories')
+@section('title','All Admin')
 @section('admin_content')
-    <h2>Admins List</h2>
+    <h2>Admin List</h2>
     <p class="alert-success">
         <?php
         if (Session::get('message')) {
@@ -10,7 +10,7 @@
         }
         ?>
     </p>
-    <table class="table table-striped table-hover">
+    <table class="table table-hover">
         <thead class="label-success">
         <tr>
             <th>Name</th>
@@ -28,11 +28,14 @@
                 <td class="center">{{$admin->phone}}</td>
                 <td class="center">{{$admin->access_level}}</td>
                 <td class="center">
-                    <a class="btn btn-info" href="{{url('/edit_category/'.$admin->id)}}">
+                    <a class="btn btn-info" href="{{route('edit_admin',['id'=>$admin->id])}}">
                         <i class="halflings-icon edit"></i>
                     </a>
+                    <a class="btn btn-default" href="{{route('edit_password',['id'=>$admin->id])}}">Change
+                        Password
+                    </a>
                     @if($admin->id != Session::get('admin_id'))
-                        <a class="btn btn-danger" id="delete" href="{{url('/delete_category/'.$admin->id)}}">
+                        <a class="btn btn-danger" id="delete" href="{{route('delete_admin',['id'=>$admin->id])}}">
                             <i class="halflings-icon trash"></i>
                         </a>
                     @endif
@@ -44,6 +47,8 @@
     </table>
     <div class="text-center">
         {!! $admins->links() !!}
+    </div>
+    <div style="height: 220px">
     </div>
 
 @endsection()

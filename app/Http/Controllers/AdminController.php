@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -15,7 +16,8 @@ class AdminController extends Controller
         return view('admin_login');
     }
 
-    public function error(){
+    public function error()
+    {
         return view('admin.error');
     }
 
@@ -77,14 +79,46 @@ class AdminController extends Controller
     public function all_admin()
     {
         $admins = Admin::paginate(8);
-        return view('admin.all_admins',['admins'=>$admins]);
+        return view('admin.all_admins', ['admins' => $admins]);
     }
+
     public function delete_admin($id)
     {
         $admin = Admin::find($id);
         $admin->delete();
-        Session::put('message','Admin Deleted Successfully');
-        return view('admin.all_admins');
+        Session::put('message', 'Admin Deleted Successfully');
+        return redirect(route('all_admin'));
+    }
+
+    public function edit_admin($id)
+    {
+        $admin = Admin::find($id);
+        return view('admin.edit_admin', ['admin' => $admin]);
+    }
+
+    public function update_admin(Request $request, $id)
+    {
+        $admin = Admin::find($id);
+        $admin->name = $request->name;
+        $admin->phone = $request->phone;
+        $admin->access_level = $request->access_level;
+        $admin->save();
+        Session::put('message', 'Admin Updated Successfully');
+        return redirect(route('all_admin'));
+    }
+
+    public function edit_password($id)
+    {
+        $admin=Admin::find($id);
+        return view('admin.edit_password',['admin'=>$admin]);
+    }
+    public function update_password(Request $request,$id)
+    {
+        $admin=Admin::find($id);
+        $admin->password = md5($request->password);
+        $admin->save();
+        Session::put('message','Password Changed');
+        return redirect(route('all_admin'));
     }
 
 }
