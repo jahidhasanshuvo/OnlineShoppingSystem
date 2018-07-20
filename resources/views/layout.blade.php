@@ -13,7 +13,11 @@
     <link href="{{asset('frontend/css/animate.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/main.css')}}" rel="stylesheet">
     <link href="{{asset('frontend/css/responsive.css')}}" rel="stylesheet">
-    <!--[if lt IE 9]>
+
+    <!--for product image zoom -->
+    <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
+
+    <!--[if lt IE 9] >
     <script src="{{asset('frontend/js/html5shiv.js')}}"></script>
     <script src="{{asset('frontend/js/respond.min.js')}}"></script>
     <![endif]-->
@@ -234,12 +238,20 @@
 
 </footer><!--/Footer-->
 
-
-<script src="{{asset('frontend/js/jquery.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="{{asset('frontend/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.scrollUp.min.js')}}"></script>
-<script src="{{asset('frontend/js/price-range.js')}}"></script>
 <script src="{{asset('frontend/js/jquery.prettyPhoto.js')}}"></script>
 <script src="{{asset('frontend/js/main.js')}}"></script>
+<script src="{{asset('frontend/js/jqzoom.js')}}"></script>
+
+<script type="text/javascript">
+    $("#bzoom").zoom({
+        zoom_area_width: 300,
+        autoplay_interval :3000,
+        small_thumbs : 2,
+        autoplay : true
+    });
+</script>
 </body>
 </html>

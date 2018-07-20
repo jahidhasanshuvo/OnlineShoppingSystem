@@ -32,7 +32,7 @@
                 "columns": [
                     {
                         orderable: false, data: 'image', searchable: false, render: function (data) {
-                            return "<img src='" + data + "' alt='DElivery Man image' style='height:150px;width:200px'/>"
+                            return "<img src='" + data + "' alt='Delivery Man image' style='height:150px;width:200px'/>"
                         }
                     },
                     {"data": "name"},

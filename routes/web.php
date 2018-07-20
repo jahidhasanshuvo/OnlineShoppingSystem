@@ -70,6 +70,7 @@ Route::get('/active_category/{id}','CategoryController@activeCategory');
 Route::get('/add_product','ProductController@addProduct')->name('add_product');
 Route::post('/save_product','ProductController@saveProduct');
 Route::get('/all_product','ProductController@allProducts')->name('all_products');
+Route::get('/ajaxProduct','ProductController@ajaxProduct')->name('ajaxProduct');
 Route::get('/active_product/{product_id}','ProductController@activeProduct');
 Route::get('/inactive_product/{product_id}','ProductController@inactiveProduct');
 Route::get('/delete_product/{product_id}','ProductController@deleteProduct');
