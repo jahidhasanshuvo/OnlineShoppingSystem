@@ -29,7 +29,7 @@ class ProductController extends Controller
         $this->product = Product::all();
         return DataTables::of($this->product)
             ->editColumn('category_id', function ($product) {
-                return $product->category->name.' ('.$product->category->parent->name.' )';
+                return $product->category->name.' ('.$product->category->parent->name.')';
             })
             ->editColumn('publication_status', function ($product) {
                 return ['id' => $product->id, 'ps' => $product->publication_status];
@@ -55,7 +55,7 @@ class ProductController extends Controller
         $this->product->price = $request->price;
         $this->product->size = $request->size;
         $this->product->color = $request->color;
-        $this->product->color = $request->color;
+        $this->product->qty = $request->qty;
         $this->product->publication_status = $request->publication_status == null ? 0 : 1;
 
         $image = $request->file('image');
@@ -129,6 +129,7 @@ class ProductController extends Controller
         $this->product->price = $request->price;
         $this->product->size = $request->size;
         $this->product->color = $request->color;
+        $this->product->qty = $request->qty;
         if ($request->file('image') != null) {
             $image = $request->file('image');
             $image_name = str_random(20);

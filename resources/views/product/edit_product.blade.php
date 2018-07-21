@@ -72,6 +72,12 @@
                                 <input class="form-control" type="text" name="size" value="{{$product->size}}">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label">Product Quantity</label>
+                            <div class="controls">
+                                <input class="form-control" type="number" name="qty" value="{{$product->qty}}">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <label class="control-label">Upload Image</label>

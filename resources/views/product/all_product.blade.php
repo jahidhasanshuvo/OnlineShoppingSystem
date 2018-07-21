@@ -24,6 +24,7 @@
                         <th>Price</th>
                         <th>Color</th>
                         <th>Size</th>
+                        <th>Quan</br>tity</th>
                         <th>Publication Status</th>
                         <th>Actions</th>
                     </tr>
@@ -50,6 +51,7 @@
                                 {"data": "price"},
                                 {"data": "color"},
                                 {"data": "size"},
+                                {"data": "qty","width":"10px"},
                                 {
                                     "data": "publication_status", orderable: false, searchable: false,
                                     render: function (data) {

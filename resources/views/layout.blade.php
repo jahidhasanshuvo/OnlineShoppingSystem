@@ -17,7 +17,7 @@
     <!--for product image zoom -->
     <link href="{{asset('frontend/css/style.css')}}" rel="stylesheet">
 
-    <!--[if lt IE 9] >
+<!--[if lt IE 9] >
     <script src="{{asset('frontend/js/html5shiv.js')}}"></script>
     <script src="{{asset('frontend/js/respond.min.js')}}"></script>
     <![endif]-->
@@ -69,7 +69,14 @@
                             <li><a href="{{route('delivery_man')}}"><i class="fa fa-user"></i> Delivery Man</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{route('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="{{route('shopping_cart')}}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                            <li><a href="{{route('shopping_cart')}}"><i class="fa fa-shopping-cart"></i>
+                                    <?php $item = 0; ?>
+                                    @foreach(Cart::content() as $i)
+                                        <?php $it = $i->qty ;
+                                        $item += (int)$it;
+                                        ?>
+                                    @endforeach
+                               Cart @if($item)<i class="btn btn-info">{{$item}}</i>@endif</a></li>
                             @if(Session::get('customer_id'))
                                 <li><a href="{{route('customer_logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
                             @else
@@ -248,9 +255,9 @@
 <script type="text/javascript">
     $("#bzoom").zoom({
         zoom_area_width: 300,
-        autoplay_interval :3000,
-        small_thumbs : 2,
-        autoplay : true
+        autoplay_interval: 3000,
+        small_thumbs: 2,
+        autoplay: true
     });
 </script>
 </body>

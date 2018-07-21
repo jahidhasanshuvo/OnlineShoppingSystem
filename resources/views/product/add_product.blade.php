@@ -70,6 +70,13 @@
                         </div>
 
                         <div class="form-group">
+                            <label class="control-label">Product amount</label>
+                            <div class="controls">
+                                <input class="form-control" type="number" name="qty">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label">Upload Image</label>
                             <div class="controls">
                                 <input class="form-control" type="file" name="image" required="">

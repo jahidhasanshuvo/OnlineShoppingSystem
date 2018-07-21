@@ -6,6 +6,7 @@ use App\Customer;
 use App\Order;
 use App\OrderDetail;
 use App\Payment;
+use App\Product;
 use App\Shipping;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -95,6 +96,9 @@ class CheckoutController extends Controller
         $order->status = 'pending';
         $order->save();
         foreach (Cart::content() as $content) {
+            $product =Product::find($content->id);
+            $product->qty = $product->qty - $content->qty;
+            $product->save();
             $order_details = new OrderDetail();
             $order_details->order_id = $order->id;
             $order_details->product_id = $content->id;
