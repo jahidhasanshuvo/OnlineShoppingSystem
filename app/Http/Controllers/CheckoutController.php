@@ -68,7 +68,7 @@ class CheckoutController extends Controller
 
     public function checkout()
     {
-        if(Cart::content()->count() <1){
+        if (Cart::content()->count() < 1) {
             return redirect(route('shopping_cart'));
         }
         return view('checkout.checkout');
@@ -96,7 +96,7 @@ class CheckoutController extends Controller
         $order->status = 'pending';
         $order->save();
         foreach (Cart::content() as $content) {
-            $product =Product::find($content->id);
+            $product = Product::find($content->id);
             $product->qty = $product->qty - $content->qty;
             $product->save();
             $order_details = new OrderDetail();

@@ -19,9 +19,6 @@
                                                 <option value="pending" @if($order->status=="pending") selected @endif>
                                                     Pending
                                                 </option>
-                                                <option value="processing"
-                                                        @if($order->status=="processing") selected @endif>Processing
-                                                </option>
                                                 <option value="done" @if($order->status=="done") selected @endif>Done
                                                 </option>
                                             </select>

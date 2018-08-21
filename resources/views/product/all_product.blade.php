@@ -13,8 +13,8 @@
                     }
                     ?>
                 </p>
-                <table class="table table-hover" id="myTable">
-                    <thead class="greenLight">
+                <table class="table table-hover table-striped" id="myTable">
+                    <thead class="label-success">
                     <tr>
                         <th>Product Name</th>
                         <th>Category</th>

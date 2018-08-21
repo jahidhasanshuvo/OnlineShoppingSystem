@@ -8,6 +8,7 @@
     <!-- Custom CSS -->
     <link href="{{asset('backend/css/style.css')}}" rel='stylesheet'/>
     <!-- Graph CSS -->
+
     <link rel="stylesheet" href="{{asset('backend/css/glyphicons.css')}}">
     <link rel="stylesheet" href="{{asset('backend/css/halflings.css')}}">
     <link href="{{asset('backend/css/font-awesome.css')}}" rel="stylesheet">
@@ -18,9 +19,14 @@
     <script src="{{asset('backend/js/jquery-1.10.2.min.js')}}"></script>
     <script src="{{asset('backend/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('backend/js/dataTables.bootstrap.min.js')}}"></script>
-    <!--    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>
+
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.js"></script>
+	<script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
     -->
 
 </head>
@@ -78,11 +84,11 @@
                 @yield('admin_content')
             </div>
 
-            <div class="myfooter">
-                <div class="container">
-                    <h4 class="text-center">@Copyright 2018 Md.Jahid Hasan Shuvo</h4>
-                </div>
-            </div>
+            {{--<div class="myfooter">--}}
+                {{--<div class="container">--}}
+                    {{--<h4 class="text-center">@Copyright 2018 Md.Jahid Hasan Shuvo</h4>--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <!--content-->
         </div>
 
@@ -94,9 +100,10 @@
         </header>
         <div class="menu">
             <ul id="menu">
+                <li><a href="{{route('dashboard')}}"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
                 <li><a href="{{route('report')}}"><i class="fa fa-tachometer"></i> <span>Reports</span></a></li>
                 @if(Session::get('access_level')== "Admin")
-                    <li id="menu-academico"><a href="#"><i class="fa fa-table"></i> <span>Admin Registration</span>
+                    <li id="menu-academico"><a href="#"><i class="fa fa-table"></i> <span>Admins</span>
                             <span
                                     class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
@@ -124,22 +131,12 @@
                         <span>Add Products</span></a></li>
                 <li id="menu-academico"><a href="{{route('all_delivery_men')}}"><i class="lnr lnr-book"></i> <span>Delivery Men</span></a>
                 </li>
-                <li><a href="bags.html"><i class="lnr lnr-envelope"></i> <span>Bags</span></a></li>
-                <li><a href="products.html"><i class="lnr lnr-chart-bars"></i> <span>Watches</span></a></li>
                 <li id="menu-academico"><a href="#"><i class="lnr lnr-layers"></i> <span>Sliders</span> <span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                     <ul id="menu-academico-sub">
                         <li id="menu-academico-avaliacoes"><a href="{{route('all_sliders')}}">All Sliders</a></li>
                         <li id="menu-academico-boletim"><a href="{{route('add_slider')}}">Add Slider</a></li>
 
-                    </ul>
-                </li>
-                <li><a href="#"><i class="lnr lnr-chart-bars"></i> <span>Forms</span> <span
-                                class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                    <ul>
-                        <li><a href="input.html"> Input</a></li>
-                        <li><a href="validation.html">Validation</a></li>
                     </ul>
                 </li>
             </ul>

@@ -51,28 +51,28 @@
                         <div class="form-group">
                             <label class="control-label">Product Price</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="price">
+                                <input class="form-control" type="number" name="price" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Product Color</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="color">
+                                <input class="form-control" type="text" name="color" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Product Size</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="size">
+                                <input class="form-control" type="text" name="size" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Product amount</label>
                             <div class="controls">
-                                <input class="form-control" type="number" name="qty">
+                                <input class="form-control" type="number" name="qty" required="">
                             </div>
                         </div>
 

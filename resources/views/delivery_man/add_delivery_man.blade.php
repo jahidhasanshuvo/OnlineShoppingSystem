@@ -24,7 +24,7 @@
                         <div class="form-group">
                             <label class="control-label">Mobile Number</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="mobile" required="">
+                                <input class="form-control" type="number" name="mobile" required="">
                             </div>
                         </div>
                         <div class="form-group">

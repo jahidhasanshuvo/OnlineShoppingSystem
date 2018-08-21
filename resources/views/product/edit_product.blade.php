@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <div class="control-label">Select Category</div>
                             <div class="controls">
-                                <select name="category_id" class="form-control">
+                                <select name="category_id" class="form-control" required="">
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}"
                                                 @if($category->id==$product->category_id) selected @endif>{{$category->name}}
@@ -55,27 +55,27 @@
                         <div class="form-group">
                             <label class="control-label">Product Price</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="price" value="{{$product->price}}">
+                                <input class="form-control" type="number" name="price" value="{{$product->price}}" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Product Color</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="color" value="{{$product->color}}">
+                                <input class="form-control" type="text" name="color" value="{{$product->color}}" required="">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Product Size</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="size" value="{{$product->size}}">
+                                <input class="form-control" type="text" name="size" value="{{$product->size}}" required="">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Product Quantity</label>
                             <div class="controls">
-                                <input class="form-control" type="number" name="qty" value="{{$product->qty}}">
+                                <input class="form-control" type="number" name="qty" value="{{$product->qty}}" required="">
                             </div>
                         </div>
 

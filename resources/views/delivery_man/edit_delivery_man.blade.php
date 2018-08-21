@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <label class="control-label">Mobile Number</label>
                         <div class="controls">
-                            <input class="form-control" type="text" name="mobile" value="{{$delivery_man->mobile}}"
+                            <input class="form-control" type="number" name="mobile" value="{{$delivery_man->mobile}}"
                                    required="">
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DeliveryMan;
+use App\Product;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
 use App\Order;
@@ -36,20 +37,6 @@ class OrderController extends Controller
         return DataTables::of($order)->addColumn('action', function ($order) {
             return $order->id;
         })->make(true);
-
-        /* return DataTables::eloquent($order)->addColumn('customer_name',function ($order) {
-             return ['customer_name'=>$order->customer->name];
-         })->addColumn('mobile_number',function ($order) {
-             return $order->customer->mobile_number;
-         })->addColumn('payment_status',function ($order) {
-             return $order->payment->status;
-         })->addColumn('city',function ($order) {
-             return $order->shipping->city;
-         })->addColumn('address',function ($order) {
-             return [$order->shipping->address];
-         })->addColumn('action', function ($order) {
-             return $order->id;
-         })->make(true); */
     }
 
     public function order_details($id)
@@ -76,5 +63,32 @@ class OrderController extends Controller
         $this->order->save();
         Session::put('message', 'Order updated successfully');
         return redirect(route('all_orders'));
+    }
+
+    public function cancelOrder($id)
+    {
+        $order = Order::find($id);
+        if ($order->payment->status == "done" || $order->status == "done") {
+            return redirect()->back()->with([
+                'message' => 'Order have already completed. You cannot delete it.'
+            ]);
+        }
+        $shipping = Shipping::find($order->shipping_id);
+        $payments = Payment::find($order->payment_id);
+        $details = $order->order_details;
+        foreach ($details as $detail) {
+            $product = Product::find($detail->product_id);
+            $product->qty += $detail->qty;
+            $product->save();
+            $detail->delete();
+        }
+        $order->delete();
+        $shipping->delete();
+        $payments->delete();
+        return redirect(route('all_orders'))->with(
+            [
+                'message' => 'Order Request Canceled Successfully'
+            ]
+        );
     }
 }

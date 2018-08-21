@@ -16,8 +16,8 @@
                         <h2>Login to your account</h2>
                         <form action="{{route('customer_login')}}" method="post">
                             {{csrf_field()}}
-                            <input type="email" placeholder="Email Address" name="email"/>
-                            <input type="password" placeholder="Password" name="password"/>
+                            <input type="email" placeholder="Email Address" name="email" required=""/>
+                            <input type="password" placeholder="Password" name="password" required=""/>
                             <button type="submit" class="btn btn-default">Login</button>
                         </form>
                     </div><!--/login form-->

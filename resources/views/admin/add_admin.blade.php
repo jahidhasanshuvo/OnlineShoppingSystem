@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="control-label">Mobile Number</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="phone" required="">
+                                <input class="form-control" type="number" name="phone" required="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -53,7 +53,7 @@
                         <div class="form-group">
                             <label class="control-label">Access Level</label>
                             <div class="controls">
-                                <select name="access_level">
+                                <select name="access_level" required="">
                                     <option value="">Select Admin Level</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>

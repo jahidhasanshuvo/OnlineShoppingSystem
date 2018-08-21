@@ -76,13 +76,13 @@ class ProductController extends Controller
             $this->product->image1 = $image1_url;
             $this->product->save();
             Session::put('message', 'Product saved with image');
-            return redirect(route('add_products'));
+            return redirect(route('add_product'));
         }
         $this->product->image = '';
         $this->product->image1 = '';
         $this->product->save();
         Session::put('message', 'Product saved without image');
-        return redirect(route('add_products'));
+        return redirect(route('add_product'));
     }
 
     public function activeProduct($product_id)

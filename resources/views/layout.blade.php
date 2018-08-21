@@ -47,7 +47,6 @@
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
                             <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                         </ul>
                     </div>
@@ -67,16 +66,15 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{route('home')}}" class="active"><i class="fa fa-home"></i>Home</a></li>
                             <li><a href="{{route('delivery_man')}}"><i class="fa fa-user"></i> Delivery Man</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="{{route('checkout')}}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                             <li><a href="{{route('shopping_cart')}}"><i class="fa fa-shopping-cart"></i>
                                     <?php $item = 0; ?>
                                     @foreach(Cart::content() as $i)
-                                        <?php $it = $i->qty ;
+                                        <?php $it = $i->qty;
                                         $item += (int)$it;
                                         ?>
                                     @endforeach
-                               Cart @if($item)<i class="btn btn-info">{{$item}}</i>@endif</a></li>
+                                    Cart @if($item)<i class="btn btn-info">{{$item}}</i>@endif</a></li>
                             @if(Session::get('customer_id'))
                                 <li><a href="{{route('customer_logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
                             @else
@@ -168,67 +166,6 @@
                     <div class="companyinfo">
                         <h2><span>Online</span>-shopping</h2>
                         <p>We Provide the best quality products</p>
-                    </div>
-                </div>
-                <div class="col-sm-7">
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="images/home/iframe1.png" alt=""/>
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="images/home/iframe2.png" alt=""/>
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="images/home/iframe3.png" alt=""/>
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="video-gallery text-center">
-                            <a href="#">
-                                <div class="iframe-img">
-                                    <img src="images/home/iframe4.png" alt=""/>
-                                </div>
-                                <div class="overlay-icon">
-                                    <i class="fa fa-play-circle-o"></i>
-                                </div>
-                            </a>
-                            <p>Circle of Hands</p>
-                            <h2>24 DEC 2014</h2>
-                        </div>
                     </div>
                 </div>
             </div>

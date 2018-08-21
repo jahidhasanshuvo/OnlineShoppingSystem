@@ -96,6 +96,7 @@ Route::get('order_details/{id}','OrderController@order_details')->name('order_de
 Route::get('edit_order/{id}','OrderController@edit_order')->name('edit_order');
 Route::post('update_order/{id}','OrderController@update_order')->name('update_order');
 Route::get('/ajaxOrder','OrderController@ajaxOrder')->name('ajaxOrder');
+Route::get('/cancelOrder/{id}','OrderController@cancelOrder')->name('cancelOrder');
 
 
 ///Delivery Man Controller

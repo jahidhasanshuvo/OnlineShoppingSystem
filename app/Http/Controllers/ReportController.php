@@ -21,6 +21,6 @@ class ReportController extends Controller
             ->groupBy('product_id')
             ->select(['product_id', DB::raw("SUM(qty) as qty"), DB::raw('SUM(subtotal) as subtotal')])
             ->get();
-        return view('report.report',['orders'=>$orders]);
+        return view('report.report',['orders'=>$orders,'fromDate' => $request->fromDate , 'toDate' => $request->toDate]);
     }
 }

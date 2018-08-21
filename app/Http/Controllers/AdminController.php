@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -23,7 +24,15 @@ class AdminController extends Controller
 
     public function showDashboard()
     {
-        return view('admin.dashboard');
+        $orders = Order::all();
+        $order_qty = $orders->count();
+        $done_qty = $orders->where('status', '=', 'done')->count();
+        $pending_qty = $orders->where('status', '=', 'pending')->count();
+        return view('admin.dashboard')->with([
+            'order' => $order_qty,
+            'done' => $done_qty,
+            'pending' => $pending_qty
+        ]);
     }
 
     public function dashboard(Request $request)
@@ -109,15 +118,16 @@ class AdminController extends Controller
 
     public function edit_password($id)
     {
-        $admin=Admin::find($id);
-        return view('admin.edit_password',['admin'=>$admin]);
+        $admin = Admin::find($id);
+        return view('admin.edit_password', ['admin' => $admin]);
     }
-    public function update_password(Request $request,$id)
+
+    public function update_password(Request $request, $id)
     {
-        $admin=Admin::find($id);
+        $admin = Admin::find($id);
         $admin->password = md5($request->password);
         $admin->save();
-        Session::put('message','Password Changed');
+        Session::put('message', 'Password Changed');
         return redirect(route('all_admin'));
     }
 

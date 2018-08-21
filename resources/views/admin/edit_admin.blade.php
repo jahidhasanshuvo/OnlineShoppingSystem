@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label class="control-label">Phone</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="phone" value="{{$admin->phone}}"
+                                <input class="form-control" type="number" name="phone" value="{{$admin->phone}}"
                                        required="">
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <div class="control-label">Select Access Level</div>
                             <div class="controls">
-                                <select name="access_level" class="form-control">
+                                <select name="access_level" class="form-control" required="">
                                     <option value="">Select Access Level</option>
                                     <option value="Admin"
                                             @if($admin->access_level=="Admin") selected @endif>Admin

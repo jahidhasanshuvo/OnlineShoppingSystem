@@ -1,6 +1,10 @@
 @extends('admin_layout')
 @section('title','Order Details Page')
 @section('admin_content')
+    <a href="{{route('cancelOrder',['id'=>$order->id])}}" id="cancel" class="btn btn-danger">Cancel request</a>
+    <p class="label-danger">
+        @if(Session::get('message')) {{Session::get('message')}} @endif
+    </p>
     <div id="masterContent">
         <div class="container-fluid">
             <div class="row">
@@ -118,5 +122,16 @@
         </div>
     </div>
     <button id="btnPrint" class="btn-primary"> Print Preview</button>
-
+    <script>
+        $(document).on("click", "#cancel", function (e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            bootbox.confirm("Are you want to cancel the request!!", function (confirmed) {
+                if (confirmed) {
+                    window.location.href = link;
+                }
+                ;
+            });
+        });
+    </script>
 @endsection()
