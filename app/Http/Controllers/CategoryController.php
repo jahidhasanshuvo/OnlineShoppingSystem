@@ -13,6 +13,7 @@ class CategoryController extends Controller
 
     public function __construct()
     {
+        $this->middleware('CheckUser');
         $this->category = new Category();
     }
 
@@ -35,9 +36,14 @@ class CategoryController extends Controller
         $this->category->description = $request->description;
         $this->category->publication_status = $request->publication_status == null ? 0 : 1;
         $this->category->category_id = $request->category_id;
-        $this->category->save();
-        Session::put('message', 'Category Added');
-        return redirect(route('add_categories'));
+        try{
+            $this->category->save();
+            Session::put('message', 'Category Added');
+        }
+        catch (\Exception $exception){
+
+        }
+
     }
 
     public function inactiveCategory($id)

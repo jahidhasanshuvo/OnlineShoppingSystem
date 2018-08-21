@@ -13,6 +13,7 @@ class SliderController extends Controller
     private $slider;
     public function __construct()
     {
+        $this->middleware('CheckUser');
         $this->slider = new Slider();
     }
 

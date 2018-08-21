@@ -12,7 +12,7 @@
 
 
 Route::get('/login','HomeController@login');
-Route::get('/logout','HomeController@logout');
+Route::get('/logout','HomeController@logout')->middleware('CheckUser');
 Route::get('/admin','HomeController@user')->middleware('CheckUser');
 Route::get('/homepage','HomeController@homepage')->middleware('CheckUser');
 ////////////////////Frontend Routing/////////////////////////////////

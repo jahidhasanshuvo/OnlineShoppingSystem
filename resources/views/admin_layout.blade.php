@@ -84,12 +84,12 @@
                 @yield('admin_content')
             </div>
 
-            {{--<div class="myfooter">--}}
-                {{--<div class="container">--}}
-                    {{--<h4 class="text-center">@Copyright 2018 Md.Jahid Hasan Shuvo</h4>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            <!--content-->
+        {{--<div class="myfooter">--}}
+        {{--<div class="container">--}}
+        {{--<h4 class="text-center">@Copyright 2018 Md.Jahid Hasan Shuvo</h4>--}}
+        {{--</div>--}}
+        {{--</div>--}}
+        <!--content-->
         </div>
 
     </div>
@@ -129,7 +129,16 @@
                 </li>
                 <li id="menu-academico"><a href="{{route('add_product')}}"><i class="fa fa-file-text-o"></i>
                         <span>Add Products</span></a></li>
-                <li id="menu-academico"><a href="{{route('all_delivery_men')}}"><i class="lnr lnr-book"></i> <span>Delivery Men</span></a>
+
+                <li id="menu-academico"><a href="#"><i class="lnr lnr-layers"></i> <span>Delivery Men</span> <span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-avaliacoes"><a href="{{route('all_delivery_men')}}">All Delivery Men</a>
+                        </li>
+                        <li id="menu-academico-boletim"><a href="{{route('add_delivery_man')}}">Add Delivery Men</a>
+                        </li>
+
+                    </ul>
                 </li>
                 <li id="menu-academico"><a href="#"><i class="lnr lnr-layers"></i> <span>Sliders</span> <span
                                 class="fa fa-angle-right" style="float: right"></span></a>
@@ -175,7 +184,7 @@
     $(document).on("click", "#delete", function (e) {
         e.preventDefault();
         var link = $(this).attr("href");
-        bootbox.confirm("Are you want delete!!", function (confirmed) {
+        bootbox.confirm("Are you sure to delete!!", function (confirmed) {
             if (confirmed) {
                 window.location.href = link;
             }

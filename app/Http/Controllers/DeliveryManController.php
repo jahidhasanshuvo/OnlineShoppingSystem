@@ -12,6 +12,7 @@ class DeliveryManController extends Controller
     private $delivery_man;
     public function __construct()
     {
+        $this->middleware('CheckUser');
         $this->delivery_man =new DeliveryMan();
     }
 

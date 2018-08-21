@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('CheckUser');
+    }
+
     public function index()
     {
         return view('report.report');
@@ -21,6 +26,6 @@ class ReportController extends Controller
             ->groupBy('product_id')
             ->select(['product_id', DB::raw("SUM(qty) as qty"), DB::raw('SUM(subtotal) as subtotal')])
             ->get();
-        return view('report.report',['orders'=>$orders,'fromDate' => $request->fromDate , 'toDate' => $request->toDate]);
+        return view('report.report', ['orders' => $orders, 'fromDate' => $request->fromDate, 'toDate' => $request->toDate]);
     }
 }

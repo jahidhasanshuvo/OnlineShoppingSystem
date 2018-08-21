@@ -15,6 +15,7 @@ class ProductController extends Controller
 
     public function __construct()
     {
+        $this->middleware('CheckUser')->except(['productDetails']);
         $this->product = new Product();
     }
 
@@ -29,7 +30,7 @@ class ProductController extends Controller
         $this->product = Product::all();
         return DataTables::of($this->product)
             ->editColumn('category_id', function ($product) {
-                return $product->category->name.' ('.$product->category->parent->name.')';
+                return $product->category->name . ' (' . $product->category->parent->name . ')';
             })
             ->editColumn('publication_status', function ($product) {
                 return ['id' => $product->id, 'ps' => $product->publication_status];
