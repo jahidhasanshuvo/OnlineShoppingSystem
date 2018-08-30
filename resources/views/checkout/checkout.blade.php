@@ -29,10 +29,13 @@
                         </div>
                         <br>
                         <br>
-                        <?php $charge = ((int)Cart::total()*1.5);?>
+                        <?php
+                        $total = floatval(str_replace('.', ',', str_replace(',', '', Cart::total())));
+                        $charge = (int)($total * 1.5/100);
+                        ?>
                         <div class="payment-options">
                             <h4>Your total Payment : {{Cart::total()}} Tk.</h4>
-                            <h5>[ If you want to use bkash you have to pay {{$charge}} Tk. charge ]</h5>
+                            <h5>[ If you want to use bkash you have to pay {{$charge}} Tk. extra]</h5>
                             <span><label><input type="radio" name="payment_method" id="handcash" onclick="myFunction()"
                                                 value="Hand Cash" checked>Hand Cash</label></span>
                             <span><label><input type="radio" name="payment_method" id="bkash" onclick="myFunction()"
@@ -56,7 +59,7 @@
             if (radio2.checked == true) {
                 radio1.checked = false;
                 text.style.display = "block";
-                text.setAttribute("required","");
+                text.setAttribute("required", "");
             } else {
                 text.style.display = "none";
             }
