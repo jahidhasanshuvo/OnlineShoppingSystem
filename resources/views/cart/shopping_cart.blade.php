@@ -12,6 +12,11 @@
             @if(Cart::content()->count()<1)
                 <h4 class="alert-danger">You didn't shop anything</h4>
             @endif
+            <h4 class="alert-{{Session::get('status')}}">
+                @if(Session::get('message'))
+                    {{Session::get('message')}}
+                @endif
+            </h4>
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
                     <thead>
@@ -45,10 +50,11 @@
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
-                                        <input class="cart_quantity_input" type="number" name="qty"
+                                        <input class="cart_quantity_input" type="number" name="qty" min="1"
                                                style="height:30px;width:55px;"
                                                value="{{$cartItem->qty}}">
                                         <input type="hidden" name="rowId" value="{{$cartItem->rowId}}">
+                                        <input type="hidden" name="productId" value="{{$cartItem->id}}">
                                         <input type="hidden" name="image" value="{{$cartItem->options->image}}">
                                         <input type="submit" value="update" class="btn btn-sm">
                                     </div>
@@ -87,4 +93,5 @@
             </div>
         </div>
     </section><!--/#do_action-->
+
 @endsection

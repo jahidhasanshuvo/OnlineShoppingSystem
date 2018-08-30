@@ -22,7 +22,16 @@ class ReportController extends Controller
 
     public function sellingOnDate(Request $request)
     {
-        $orders = OrderDetail::whereBetween('created_at', [$request->fromDate, $request->toDate])
+        $date = $request->toDate;
+        $date1 = str_replace('-', '/', $date);
+        $tomorrow = date('Y-m-d',strtotime($date1 . "+1 days"));
+        if(strtotime($request->fromDate) > strtotime($request->toDate)){
+            return redirect()->back()->with([
+                'status' => 'danger',
+               'message' => 'From date is bigger than to date'
+            ]);
+        }
+        $orders = OrderDetail::whereBetween('created_at', [$request->fromDate, $tomorrow])
             ->groupBy('product_id')
             ->select(['product_id', DB::raw("SUM(qty) as qty"), DB::raw('SUM(subtotal) as subtotal')])
             ->get();

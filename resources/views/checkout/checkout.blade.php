@@ -13,7 +13,7 @@
                         <input type="text" placeholder="Name" name="name" required="">
                         <select name="city" required="">
                             <option value="">Select your zone</option>
-                            <option value="Motijhil">Motijhil</option>
+                            <option value="Motijhil">Motijheel</option>
                             <option value="Uttara">Uttara</option>
                             <option value="Banani">Banani</option>
                             <option value="Gulshan">Gulshan</option>
@@ -29,12 +29,15 @@
                         </div>
                         <br>
                         <br>
+                        <?php $charge = ((int)Cart::total()*1.5);?>
                         <div class="payment-options">
+                            <h4>Your total Payment : {{Cart::total()}} Tk.</h4>
+                            <h5>[ If you want to use bkash you have to pay {{$charge}} Tk. charge ]</h5>
                             <span><label><input type="radio" name="payment_method" id="handcash" onclick="myFunction()"
                                                 value="Hand Cash" checked>Hand Cash</label></span>
                             <span><label><input type="radio" name="payment_method" id="bkash" onclick="myFunction()"
                                                 value="Bkash">Bkash</label></span>
-                            <span><label><input class="form-control" type="number" name="tID" id="tID"
+                            <span><label><input class="form-control" type="text" name="tID" id="tID"
                                                 style="display: none;" placeholder="Transaction ID"></label></span>
                             <div><p>[ Our Bkash numbers: <b>01681471764, 01719957699</b>]</p></div>
                             <br><input class="btn btn-success" type="submit" value="Checkout">

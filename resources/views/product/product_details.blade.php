@@ -17,6 +17,11 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <h4 class="alert-{{Session::get('status')}}">
+                    @if(Session::get('message'))
+                        {{Session::get('message')}}
+                    @endif
+                </h4>
                 <div class="product-information"><!--/product-information-->
                     <h2>{{$product->name}}</h2>
                     <span>
@@ -26,7 +31,7 @@
                                     {{csrf_field()}}
                                     <textarea name="order_description"></textarea>
                                     <label>Quantity:</label>
-                                    <input type="number" value="1" name="qty"/>
+                                    <input type="number" value="1" name="qty" min="1"/>
                                     <input type="hidden" value="{{$product->id}}" name="product_id">
                                     <button type="submit" class="btn btn-fefault cart">
                                         <i class="fa fa-shopping-cart"></i>

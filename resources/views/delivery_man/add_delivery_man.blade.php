@@ -30,7 +30,17 @@
                         <div class="form-group">
                             <label class="control-label">Zone or Area</label>
                             <div class="controls">
-                                <input class="form-control" type="text" name="zone" required="">
+                                <select name="city" required="">
+                                    <option value="">Select zone</option>
+                                    <option value="Motijhil">Motijheel</option>
+                                    <option value="Uttara">Uttara</option>
+                                    <option value="Banani">Banani</option>
+                                    <option value="Gulshan">Gulshan</option>
+                                    <option value="Mirpur">Mirpur</option>
+                                    <option value="Gulisthan">Gulisthan</option>
+                                    <option value="Jatrabari">Jatrabari</option>
+                                    <option value="Mohakhali">Mohakhali</option>
+                                </select>
                             </div>
                         </div>
 
