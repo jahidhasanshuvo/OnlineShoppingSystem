@@ -39,7 +39,7 @@
                                     </button>
                                 </form>
                             </span>
-                    <p><b>Availability:</b>@if($product->publication_status)Available @else Not Available @endif</p>
+                    <p><b>Availability:</b>{{$product->qty}}</p>
                     <p><b>Short Description:</b> {{$product->short_description}}</p>
                     <p><b>Long Description:</b> {{$product->short_description}}</p>
                     <p><b>Category: </b>{{$product->category->parent->name}}-{{$product->category->name}}</p>

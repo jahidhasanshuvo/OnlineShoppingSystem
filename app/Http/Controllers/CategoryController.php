@@ -38,10 +38,14 @@ class CategoryController extends Controller
         $this->category->category_id = $request->category_id;
         try{
             $this->category->save();
-            Session::put('message', 'Category Added');
+            return redirect()->back()->with([
+                'message' => 'Category Added Successfully'
+            ]);
         }
         catch (\Exception $exception){
-
+            return redirect()->back()->with([
+                'message' => 'Something went wrong'
+            ]);
         }
 
     }

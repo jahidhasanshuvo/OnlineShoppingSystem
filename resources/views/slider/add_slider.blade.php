@@ -31,7 +31,7 @@
                         <div class="form-group">
                             <label class="control-label">Upload Image</label>
                             <div class="controls">
-                                <input class="form-control" type="file" name="image" required="">
+                                <input class="form-control" type="file" name="image" required=""  id="img" onchange="validateImage()">
                             </div>
                         </div>
 
@@ -62,4 +62,25 @@
 <br>
 <br>
 <br>
+    <script type="text/javascript">
+        function validateImage() {
+            var formData = new FormData();
+
+            var file = document.getElementById("img").files[0];
+
+            formData.append("Filedata", file);
+            var t = file.type.split('/').pop().toLowerCase();
+            if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+                alert('Please select a valid image file');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            if (file.size > 1024000) {
+                alert('Max Upload size is 1MB only');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection()

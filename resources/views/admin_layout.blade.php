@@ -176,7 +176,9 @@
 
 <script src="{{asset('backend/js/bootbox.min.js')}}"></script>
 <script src="{{asset('backend/js/printPreview.js')}}"></script>
+{{--
 <script src="{{asset('backend/js/jquery.nicescroll.js')}}"></script>
+--}}
 <script src="{{asset('backend/js/scripts.js')}}"></script>
 <script src="{{asset('backend/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('backend/js/menu_jquery.js')}}"></script>

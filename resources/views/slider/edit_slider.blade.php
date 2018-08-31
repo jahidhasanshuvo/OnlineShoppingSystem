@@ -8,13 +8,14 @@
         <div class="box-content">
             <p class="alert-success">
                 <?php
-                if(Session::get('message')){
+                if (Session::get('message')) {
                     echo Session::get('message');
-                    Session::put('message',null);
+                    Session::put('message', null);
                 }
                 ?>
             </p>
-            <form class="form-horizontal" method="post" action="{{url('/update_slider/'.$slider->id)}}" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" action="{{url('/update_slider/'.$slider->id)}}"
+                  enctype="multipart/form-data">
                 <fieldset>
                     {{csrf_field()}}
                     <div class="control-group">
@@ -26,19 +27,21 @@
                     <div class="control-group">
                         <label class="control-label">Slider Description</label>
                         <div class="controls">
-                            <textarea class="form-control" rows="5" name="description" required="">{{$slider->description}}</textarea>
+                            <textarea class="form-control" rows="5" name="description"
+                                      required="">{{$slider->description}}</textarea>
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Upload Image</label>
                         <div class="controls">
-                            <input class="form-control" type="file" name="image">
+                            <input class="form-control" type="file" name="image" id="img" onchange="validateImage()">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label">Set position</label>
                         <div class="controls">
-                            <input class="form-control" type="number" name="position" value="{{$slider->position}}" required="">
+                            <input class="form-control" type="number" name="position" value="{{$slider->position}}"
+                                   required="">
                         </div>
                     </div>
 
@@ -52,5 +55,25 @@
         </div>
     </div><!--/span-->
 
+    <script type="text/javascript">
+        function validateImage() {
+            var formData = new FormData();
 
+            var file = document.getElementById("img").files[0];
+
+            formData.append("Filedata", file);
+            var t = file.type.split('/').pop().toLowerCase();
+            if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+                alert('Please select a valid image file');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            if (file.size > 1024000) {
+                alert('Max Upload size is 1MB only');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection()

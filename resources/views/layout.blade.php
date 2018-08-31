@@ -99,7 +99,7 @@
 
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                         <?php
-                        $categories = \App\Category::all()->where('publication_status', 1)->where('category_id', '=', null);
+                        $categories = \App\Category::all()->where('publication_status', '=', 1)->where('category_id', '=', null);
                         ?>
                         @foreach ($categories as $category)
                             <div class="panel panel-default" data-parent="#accordian">
@@ -117,9 +117,11 @@
                                         <div class="panel-body">
                                             <ul>
                                                 @foreach($category->children as $subCategory)
-                                                    <li>
-                                                        <a href="{{route('search_by_category',['id'=>$subCategory->id])}}">{{$subCategory->name}}
-                                                            ({{count($subCategory->products)}})</a></li>
+                                                    @if($subCategory->publication_status == 1)
+                                                        <li>
+                                                            <a href="{{route('search_by_category',['id'=>$subCategory->id])}}">{{$subCategory->name}}
+                                                                ({{count($subCategory->products)}})</a></li>
+                                                    @endif
                                                 @endforeach
                                             </ul>
                                         </div>

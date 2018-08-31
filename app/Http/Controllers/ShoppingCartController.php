@@ -21,6 +21,9 @@ class ShoppingCartController extends Controller
                 $qty = $request->qty;
             }
         }
+        if(Cart::content()->count()<1){
+            $qty =$request->qty;
+        }
         if ($qty > $product->qty) {
             return redirect()->back()->with([
                 'message' => 'Sorry We do not have that much product',

@@ -166,7 +166,14 @@ class ProductController extends Controller
     public function productDetails($id)
     {
         $this->product = Product::find($id);
-        return view('product.product_details', ['product' => $this->product]);
+        if ($this->product != null) {
+            if ($this->product->publication_status == 0) {
+                return redirect(route('home'));
+            }
+            return view('product.product_details', ['product' => $this->product]);
+        } else {
+            return redirect(route('home'));
+        }
     }
 
 }

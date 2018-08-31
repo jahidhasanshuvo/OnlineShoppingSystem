@@ -25,7 +25,7 @@
                             <div class="control-label">Select Category</div>
                             <div class="controls">
                                 <select name="category_id" class="form-control" required="">
-                                    <option>Select Category</option>
+                                    <option value="">Select Category</option>
                                     @foreach ($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}
                                             ({{$category->parent->name}})
@@ -79,13 +79,13 @@
                         <div class="form-group">
                             <label class="control-label">Upload Image</label>
                             <div class="controls">
-                                <input class="form-control" type="file" name="image" required="">
+                                <input class="form-control" type="file" name="image" required="" id="img" onchange="validateImage()">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Upload Image 2</label>
                             <div class="controls">
-                                <input class="form-control" type="file" name="image1" required="">
+                                <input class="form-control" type="file" name="image1" required="" id="img1" onchange="validateImage1()">
                             </div>
                         </div>
 
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-actions greenLight">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
                             <button type="reset" class="btn">Reset</button>
                         </div>
                     </fieldset>
@@ -105,4 +105,49 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+        function validateImage() {
+            var formData = new FormData();
+
+            var file = document.getElementById("img").files[0];
+
+            formData.append("Filedata", file);
+            var t = file.type.split('/').pop().toLowerCase();
+            if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+                alert('Please select a valid image file');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            if (file.size > 1024000) {
+                alert('Max Upload size is 1MB only');
+                document.getElementById("img").value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+    <script type="text/javascript">
+        function validateImage1() {
+            var formData = new FormData();
+
+            var file = document.getElementById("img1").files[0];
+
+            formData.append("Filedata", file);
+            var t = file.type.split('/').pop().toLowerCase();
+            if (t != "jpeg" && t != "jpg" && t != "png" && t != "bmp" && t != "gif") {
+                alert('Please select a valid image file');
+                document.getElementById("img1").value = '';
+                return false;
+            }
+            if (file.size > 1024000) {
+                alert('Max Upload size is 1MB only');
+                document.getElementById("img1").value = '';
+                return false;
+            }
+            return true;
+        }
+    </script>
 @endsection()

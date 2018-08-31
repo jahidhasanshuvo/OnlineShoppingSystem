@@ -4,10 +4,10 @@
     <h2 class="title text-center">Features Items</h2>
     @foreach($all_published_products as $product)
         <div class="col-sm-4">
-            <div class="product-image-wrapper">
+            <div class="product-image-wrapper" style="height: 450px">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        <img src="{{asset($product->image)}}" height="300" width="200" alt=""/>
+                        <img src="{{asset($product->image)}}" height="250" width="200" alt=""/>
                         <h2>{{$product->price}} ৳</h2>
                         <p>{{$product->name}}</p>
                         <a href="{{route('product_details',['id'=>$product->id])}}" class="btn btn-default add-to-cart"><i
