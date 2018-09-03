@@ -27,7 +27,7 @@ class CheckoutController extends Controller
     {
         $email = $request->email;
         $password = md5($request->password);
-        $result = Customer::where('email', $email)->where('password', $password)->first();
+        $result = Customer::where('email','=', $email)->where('password','=', $password)->first();
         if ($result) {
             Session::put('customer_id', $result->id);
             Session::put('customer_name', $result->name);
@@ -36,6 +36,7 @@ class CheckoutController extends Controller
             Session::put('message', 'Invalid Username or Password');
             return redirect(route('login'));
         }
+
         return redirect(url(Session::get('url')));
     }
 

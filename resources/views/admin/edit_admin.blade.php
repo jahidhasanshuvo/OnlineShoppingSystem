@@ -33,8 +33,8 @@
                                     <option value="Admin"
                                             @if($admin->access_level=="Admin") selected @endif>Admin
                                     </option>
-                                    <option value="User"
-                                            @if($admin->access_level=="User") selected @endif>User
+                                    <option value="Sub-admin"
+                                            @if($admin->access_level=="Sub-admin") selected @endif>Sub-admin
                                     </option>
                                 </select>
                             </div>

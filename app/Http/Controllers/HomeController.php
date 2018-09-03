@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function index()
     {
         $all_published_products = Product::select()
-            ->where('publication_status', '=', 1)->paginate(9);
+            ->where('publication_status', '=', 1)->orderByDesc('qty')->paginate(9);
         $sliders = Slider::all()->where('published_status', '=', 1);
         $categories = Category::all()
             ->where('publication_status', '=', 1)
@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         $all_published_products = Product::select()
             ->where('publication_status', '=', 1)
-            ->where('category_id', '=', $id)->orederByDesc('qty')->paginate(9);
+            ->where('category_id', '=', $id)->paginate(9);
         $sliders = Slider::all()->where('published_status', '=', 1);
         $categories = Category::all()
             ->where('publication_status', '=', 1)

@@ -56,7 +56,7 @@
                                 <select name="access_level" required="">
                                     <option value="">Select Admin Level</option>
                                     <option value="Admin">Admin</option>
-                                    <option value="User">User</option>
+                                    <option value="Sub-admin">Sub-admin</option>
                                 </select>
                             </div>
                         </div>

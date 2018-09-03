@@ -51,7 +51,7 @@
                         <div class="form-group">
                             <label class="control-label">Product Price</label>
                             <div class="controls">
-                                <input class="form-control" type="number" name="price" required="">
+                                <input class="form-control" type="number" name="price" required="" min="1">
                             </div>
                         </div>
 
@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <label class="control-label">Product amount</label>
                             <div class="controls">
-                                <input class="form-control" type="number" name="qty" required="">
+                                <input class="form-control" type="number" name="qty" required="" min="0">
                             </div>
                         </div>
 
